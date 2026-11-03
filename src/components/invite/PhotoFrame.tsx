@@ -1,40 +1,50 @@
 import { cn } from "@/lib/utils";
 import type { Photo } from "./photos";
 
-type Shape = "arch" | "oval" | "rect";
-
-const outer: Record<Shape, string> = {
-  arch: "rounded-t-[999px] rounded-b-sm",
-  oval: "rounded-[50%]",
-  rect: "rounded-sm",
-};
-
-/** A photo inside a thin double gold border. Shape and aspect ratio are set by the caller. */
+/** A photo in a gallery-style mount: thin gold border, inner hairline and gold corner marks. */
 export function PhotoFrame({
   photo,
-  shape = "arch",
   className,
-  imgClassName,
   eager,
+  tone = "light",
 }: {
   photo: Photo;
-  shape?: Shape;
   className?: string;
-  imgClassName?: string;
   eager?: boolean;
+  tone?: "light" | "dark";
 }) {
   return (
-    <div className={cn("shadow-card border border-gold/60 p-1.5", outer[shape], className)}>
-      <div className={cn("relative h-full w-full overflow-hidden", outer[shape])}>
+    <figure
+      className={cn(
+        "relative border p-2",
+        tone === "light" ? "border-gold/50 bg-ivory shadow-card" : "border-gold/40 bg-wine-deep",
+        className,
+      )}
+    >
+      <div className="relative h-full w-full overflow-hidden">
         <img
           src={photo.src}
           alt={photo.alt}
           loading={eager ? "eager" : "lazy"}
-          className={cn("h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105", imgClassName)}
+          draggable={false}
+          className="h-full w-full select-none object-cover transition-transform duration-[2s] ease-out hover:scale-[1.04]"
           style={{ objectPosition: photo.position }}
         />
-        <div className={cn("pointer-events-none absolute inset-2 border border-ivory/40", outer[shape])} />
+        <div className="pointer-events-none absolute inset-2.5 border border-ivory/35" />
       </div>
-    </div>
+      <Corners />
+    </figure>
+  );
+}
+
+export function Corners({ className }: { className?: string }) {
+  const c = "pointer-events-none absolute h-3.5 w-3.5 border-gold";
+  return (
+    <span aria-hidden className={className}>
+      <span className={cn(c, "-left-px -top-px border-l-2 border-t-2")} />
+      <span className={cn(c, "-right-px -top-px border-r-2 border-t-2")} />
+      <span className={cn(c, "-bottom-px -left-px border-b-2 border-l-2")} />
+      <span className={cn(c, "-bottom-px -right-px border-b-2 border-r-2")} />
+    </span>
   );
 }
