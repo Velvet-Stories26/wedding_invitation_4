@@ -36,7 +36,6 @@ const ROMAN = ["I", "II", "III", "IV", "V"];
 
 function Invitation() {
   const [opened, setOpened] = useState(false);
-  const couple = `${invite.bride} & ${invite.groom}`;
 
   return (
     <>
