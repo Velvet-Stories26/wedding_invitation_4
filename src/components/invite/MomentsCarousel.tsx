@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import hands from "@/assets/moment-hands.jpg";
+import rings from "@/assets/moment-rings.jpg";
 import walk from "@/assets/moment-walk.jpg";
 import stage from "@/assets/stage.jpg";
 import { cn } from "@/lib/utils";
 
 const slides = [
-  { src: hands, alt: "Henna-adorned hands raised in dua", w: 768, h: 960 },
-  { src: walk, alt: "The couple walking hand in hand toward a palace arch", w: 768, h: 960 },
-  { src: stage, alt: "The Nikah stage beneath a crystal chandelier", w: 768, h: 1344 },
+  { src: rings, alt: "The couple exchanging wedding rings over a rose bouquet", w: 768, h: 960 },
+  { src: walk, alt: "The couple walking hand in hand down a candlelit church aisle", w: 768, h: 960 },
+  { src: stage, alt: "The reception stage beneath a crystal chandelier", w: 768, h: 1344 },
 ];
 
 export function MomentsCarousel() {
