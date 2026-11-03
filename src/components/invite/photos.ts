@@ -38,12 +38,12 @@ export const photos = {
     { src: walk, alt: "Candlelit aisle", position: "50% 90%" },
     { src: rings, alt: "Roses and promises", position: "50% 80%" },
   ],
-  mosaic: [
-    { src: walk, alt: "Together at the altar", position: "50% 40%" },
-    { src: rings, alt: "The ring", position: "50% 40%" },
-    { src: stage, alt: "The celebration", position: "50% 45%" },
-    { src: rings, alt: "The bouquet", position: "50% 85%" },
-  ],
+  mosaic: {
+    large: { src: walk, alt: "Together at the altar", position: "50% 40%" },
+    topRight: { src: rings, alt: "The ring", position: "50% 40%" },
+    middleRight: { src: stage, alt: "The celebration", position: "50% 45%" },
+    wide: { src: rings, alt: "The bouquet", position: "50% 85%" },
+  },
   family: { src: stage, alt: "Both families together", position: "50% 60%" },
   brideFamily: { src: rings, alt: "The bride's family", position: "30% 50%" },
   groomFamily: { src: rings, alt: "The groom's family", position: "75% 50%" },

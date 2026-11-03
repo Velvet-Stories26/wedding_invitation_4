@@ -202,10 +202,10 @@ function Invitation() {
             <SectionHeading eyebrow="Little forevers" title="Moments we keep" />
           </Reveal>
           <Reveal delay={150} className="mt-10 grid grid-cols-5 grid-rows-[150px_150px_120px] gap-3">
-            <PhotoFrame photo={photos.mosaic[0]} className="col-span-3 row-span-2" />
-            <PhotoFrame photo={photos.mosaic[1]} className="col-span-2" />
-            <PhotoFrame photo={photos.mosaic[2]} className="col-span-2" />
-            <PhotoFrame photo={photos.mosaic[3]} className="col-span-5" />
+            <PhotoFrame photo={photos.mosaic.large} className="col-span-3 row-span-2" />
+            <PhotoFrame photo={photos.mosaic.topRight} className="col-span-2" />
+            <PhotoFrame photo={photos.mosaic.middleRight} className="col-span-2" />
+            <PhotoFrame photo={photos.mosaic.wide} className="col-span-5" />
           </Reveal>
         </section>
 
