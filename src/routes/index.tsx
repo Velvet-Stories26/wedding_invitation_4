@@ -323,10 +323,10 @@ function Invitation() {
                       />
                       <div className="pointer-events-none absolute inset-2 border border-ivory/50" />
                     </div>
-                    <span className="names-caps absolute left-1/2 top-[calc(62.5%*0.55)] flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border border-gold bg-ivory text-lg text-wine shadow-sm sm:top-auto">
+                    <span className="names-caps relative mx-auto -mt-6 flex h-12 w-12 items-center justify-center rounded-full border border-gold bg-ivory text-lg text-wine shadow-sm">
                       {ROMAN[i]}
                     </span>
-                    <div className="px-6 pb-7 pt-10 text-center">
+                    <div className="px-6 pb-7 pt-4 text-center">
                       <h3 className="names-caps text-[1.7rem] text-ink">{f.name}</h3>
                       <p className="label-caps mt-3 text-[0.5rem] text-wine">{f.when}</p>
                       <p className="font-display mt-2 italic text-ink-soft">{f.where}</p>
@@ -384,7 +384,7 @@ function Invitation() {
             </p>
             <p className="font-script mt-6 text-4xl text-gold-soft">{couple}</p>
             <p className="label-caps mt-3 text-[0.45rem] text-ivory/60">
-              & the {invite.brideFamily.replace("The ", "")} and {invite.groomFamily.replace("The ", "")} families
+              with {invite.brideFamily} & {invite.groomFamily}
             </p>
             <div className="mx-auto mt-10 flex items-center justify-center gap-3 text-gold">
               <span className="h-px w-10 bg-current opacity-50" />
