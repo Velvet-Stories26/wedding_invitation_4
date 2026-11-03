@@ -27,9 +27,9 @@ export function ScratchReveal({ children, className }: { children: ReactNode; cl
       const css = getComputedStyle(document.documentElement);
       ctx.globalCompositeOperation = "source-over";
       const grad = ctx.createLinearGradient(0, 0, width, height);
-      grad.addColorStop(0, css.getPropertyValue("--blush").trim() || "#efe3ea");
-      grad.addColorStop(0.5, "oklch(0.78 0.07 320)");
-      grad.addColorStop(1, css.getPropertyValue("--blush-deep").trim() || "#f1d9d2");
+      grad.addColorStop(0, "oklch(0.9 0.05 85)");
+      grad.addColorStop(0.5, css.getPropertyValue("--gold").trim() || "#c9a86a");
+      grad.addColorStop(1, "oklch(0.92 0.04 85)");
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, width, height);
 
@@ -40,10 +40,10 @@ export function ScratchReveal({ children, className }: { children: ReactNode; cl
         ctx.arc(Math.random() * width, Math.random() * height, Math.random() * 1.4, 0, Math.PI * 2);
         ctx.fill();
       }
-      ctx.fillStyle = css.getPropertyValue("--wine").trim() || "#6b1f2a";
+      ctx.fillStyle = css.getPropertyValue("--wine-deep").trim() || "#3a1418";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.font = `34px "Great Vibes", cursive`;
+      ctx.font = `italic 300 30px "Cormorant Garamond", serif`;
       ctx.fillText("Scratch here", width / 2, height / 2 - 4);
       ctx.font = `600 9px "Cinzel", serif`;
       ctx.fillText("✦  WITH YOUR FINGER  ✦", width / 2, height / 2 + 26);
@@ -52,7 +52,7 @@ export function ScratchReveal({ children, className }: { children: ReactNode; cl
 
     draw();
     // Redraw once the script fonts arrive so the label isn't stuck in a fallback font.
-    Promise.all([document.fonts.load('34px "Great Vibes"'), document.fonts.load('600 9px "Cinzel"')])
+    Promise.all([document.fonts.load('italic 300 30px "Cormorant Garamond"'), document.fonts.load('600 9px "Cinzel"')])
       .then(() => moves.current === 0 && draw())
       .catch(() => {});
     return () => {
