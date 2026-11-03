@@ -1,18 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import rings from "@/assets/moment-rings.jpg";
-import walk from "@/assets/moment-walk.jpg";
-import stage from "@/assets/stage.jpg";
 import { cn } from "@/lib/utils";
-
-const slides = [
-  { src: rings, alt: "The couple exchanging wedding rings over a rose bouquet", w: 768, h: 960 },
-  { src: walk, alt: "The couple walking hand in hand down a candlelit church aisle", w: 768, h: 960 },
-  { src: stage, alt: "The reception stage beneath a crystal chandelier", w: 768, h: 1344 },
-];
+import { PhotoFrame } from "./PhotoFrame";
+import { photos } from "./photos";
 
 export function MomentsCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const slides = photos.together;
 
   useEffect(() => {
     const track = trackRef.current;
@@ -33,31 +27,22 @@ export function MomentsCarousel() {
         ref={trackRef}
         className="flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        {slides.map((s) => (
-          <div key={s.alt} className="w-full shrink-0 snap-center px-1">
-            <div className="shadow-card overflow-hidden rounded-t-[999px] rounded-b-md border border-gold/40 p-1.5">
-              <img
-                src={s.src}
-                alt={s.alt}
-                width={s.w}
-                height={s.h}
-                loading="lazy"
-                className="aspect-[4/5] w-full rounded-t-[999px] rounded-b-sm object-cover"
-              />
-            </div>
+        {slides.map((s, i) => (
+          <div key={i} className="w-full shrink-0 snap-center px-1 pb-2">
+            <PhotoFrame photo={s} className="aspect-[4/5] w-full" />
           </div>
         ))}
       </div>
       <div className="mt-5 flex justify-center gap-2">
-        {slides.map((s, i) => (
+        {slides.map((_, i) => (
           <button
-            key={s.alt}
+            key={i}
             type="button"
             aria-label={`Show photo ${i + 1}`}
             onClick={() => goTo(i)}
             className={cn(
-              "h-1.5 rounded-full transition-all duration-500",
-              i === active ? "w-6 bg-wine" : "w-1.5 bg-ink-soft/40",
+              "h-1 rounded-full transition-all duration-500",
+              i === active ? "w-8 bg-gold" : "w-2 bg-ink-soft/30",
             )}
           />
         ))}

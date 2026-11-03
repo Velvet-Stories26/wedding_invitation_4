@@ -42,15 +42,33 @@ export function SectionHeading({
 }) {
   return (
     <div className="text-center">
-      <p className={cn("label-caps", tone === "light" ? "text-ink-soft" : "text-gold-soft")}>{eyebrow}</p>
+      <p className={cn("label-caps text-[0.55rem]", tone === "light" ? "text-wine" : "text-gold-soft")}>{eyebrow}</p>
       <h2
         className={cn(
-          "font-script mt-3 text-5xl leading-tight",
+          "font-display mt-3 text-[2.4rem] font-light italic leading-[1.1]",
           tone === "light" ? "text-ink" : "text-ivory glow-text",
         )}
       >
         {title}
       </h2>
+      <Flourish className={cn("mx-auto mt-4 h-3 w-16", tone === "light" ? "text-gold" : "text-gold-soft")} />
     </div>
+  );
+}
+
+export function Flourish({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 64 12" className={cn("fill-current", className)} aria-hidden>
+      <path d="M32 1 L33.6 6 L32 11 L30.4 6 Z" />
+      <path d="M0 6 C10 6 18 3 28 6 C18 9 10 6 0 6 Z M64 6 C54 6 46 3 36 6 C46 9 54 6 64 6 Z" opacity="0.8" />
+    </svg>
+  );
+}
+
+export function Cross({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 32" className={className} aria-hidden>
+      <path className="fill-current" d="M11 0h2v9h9v2h-9v21h-2V11H2V9h9z" />
+    </svg>
   );
 }
