@@ -5,15 +5,14 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system: "Velvet Nikah" — crimson velvet, plum night, blush paper, antique gold.
+ * Design system: "Velvet Vows" — crimson velvet, plum night, champagne paper, antique gold.
  * All colors in oklch. Register new tokens in @theme inline as --color-<name>.
  */
 
 @theme inline {
-  --font-script: "Great Vibes", cursive;
+  --font-script: "Pinyon Script", cursive;
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-caps: "Cinzel", Georgia, serif;
-  --font-arabic: "Amiri", serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -61,8 +60,8 @@
   --wine-deep: oklch(0.2 0.08 15);
   --plum: oklch(0.24 0.06 340);
   --plum-deep: oklch(0.15 0.04 340);
-  --blush: oklch(0.955 0.022 340);
-  --blush-deep: oklch(0.9 0.045 25);
+  --blush: oklch(0.962 0.016 50);
+  --blush-deep: oklch(0.91 0.035 30);
   --gold: oklch(0.8 0.1 80);
   --gold-soft: oklch(0.88 0.06 85);
   --ivory: oklch(0.97 0.015 80);
@@ -89,11 +88,14 @@
   --input: oklch(0.8 0.05 350 / 50%);
   --ring: var(--gold);
 
-  --gradient-blush: linear-gradient(180deg, var(--blush) 0%, oklch(0.93 0.035 0) 100%);
-  --gradient-peach: linear-gradient(180deg, oklch(0.93 0.035 0) 0%, var(--blush-deep) 55%, var(--blush) 100%);
+  --gradient-blush: linear-gradient(180deg, var(--blush) 0%, oklch(0.94 0.024 40) 100%);
+  --gradient-peach: linear-gradient(180deg, oklch(0.94 0.024 40) 0%, var(--blush-deep) 55%, var(--blush) 100%);
   --gradient-plum: radial-gradient(120% 90% at 50% 0%, var(--plum) 0%, var(--plum-deep) 75%);
   --gradient-wine: radial-gradient(90% 70% at 50% 40%, oklch(0.4 0.15 20) 0%, var(--wine-deep) 80%);
-  --gradient-hero-veil: linear-gradient(180deg, oklch(0.15 0.06 15 / 55%) 0%, oklch(0.25 0.11 18 / 70%) 45%, oklch(0.12 0.05 15 / 85%) 100%);
+  --gradient-hero-veil: linear-gradient(180deg, oklch(0.12 0.04 15 / 75%) 0%, oklch(0.12 0.04 15 / 10%) 30%, oklch(0.12 0.04 15 / 25%) 50%, oklch(0.1 0.04 15 / 92%) 85%);
+  --gradient-ivory: linear-gradient(160deg, var(--ivory) 0%, oklch(0.94 0.025 75) 100%);
+  --gradient-invite-fade: linear-gradient(90deg, transparent 0%, transparent 22%, oklch(0.97 0.015 80 / 85%) 48%, var(--ivory) 62%);
+  --gradient-photo-fade: linear-gradient(180deg, transparent 55%, oklch(0.12 0.04 15 / 70%) 100%);
   --gradient-scratch: linear-gradient(135deg, oklch(0.86 0.05 330), oklch(0.78 0.07 320) 50%, oklch(0.88 0.04 340));
   --shadow-glow: 0 0 60px -10px oklch(0.8 0.1 80 / 55%);
   --shadow-card: 0 30px 60px -30px oklch(0.15 0.05 340 / 60%);
@@ -123,8 +125,12 @@
 @utility font-display {
   font-family: var(--font-display);
 }
-@utility font-arabic {
-  font-family: var(--font-arabic);
+@utility names-caps {
+  font-family: var(--font-display);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 0.95;
 }
 @utility label-caps {
   font-family: var(--font-caps);
@@ -146,6 +152,15 @@
 }
 @utility bg-hero-veil {
   background: var(--gradient-hero-veil);
+}
+@utility bg-ivory-paper {
+  background: var(--gradient-ivory);
+}
+@utility bg-invite-fade {
+  background: var(--gradient-invite-fade);
+}
+@utility bg-photo-fade {
+  background: var(--gradient-photo-fade);
 }
 @utility shadow-glow {
   box-shadow: var(--shadow-glow);
@@ -177,6 +192,13 @@
 @keyframes stage-in {
   from { transform: scale(1.15); filter: brightness(0.5); }
   to { transform: scale(1); filter: brightness(1); }
+}
+@keyframes slow-zoom {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+@utility animate-slow-zoom {
+  animation: slow-zoom 12s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @utility animate-breathe {
