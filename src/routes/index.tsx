@@ -4,9 +4,10 @@ import frame from "@/assets/floral-frame.webp";
 import { CurtainIntro } from "@/components/invite/CurtainIntro";
 import { ScratchReveal } from "@/components/invite/ScratchReveal";
 import { Countdown } from "@/components/invite/Countdown";
-import { MomentsCarousel } from "@/components/invite/MomentsCarousel";
 import { InvitationCard } from "@/components/invite/InvitationCard";
 import { PhotoFrame } from "@/components/invite/PhotoFrame";
+import { SwipeGallery } from "@/components/invite/SwipeGallery";
+import { FilmStrip } from "@/components/invite/FilmStrip";
 import { Reveal } from "@/components/invite/Reveal";
 import { Cross, FloralDivider, Flourish, GoldRule, SectionHeading } from "@/components/invite/Ornaments";
 import { invite } from "@/components/invite/invite-data";
@@ -34,6 +35,10 @@ export const Route = createFileRoute("/")({
 
 const ROMAN = ["I", "II", "III", "IV", "V"];
 
+function Amp({ className }: { className?: string }) {
+  return <span className={`font-display font-light italic text-gold ${className ?? ""}`}>&amp;</span>;
+}
+
 function Invitation() {
   const [opened, setOpened] = useState(false);
 
@@ -42,7 +47,7 @@ function Invitation() {
       <CurtainIntro onOpened={() => setOpened(true)} />
 
       <main className="mx-auto min-h-screen w-full max-w-[480px] overflow-hidden bg-blush shadow-card">
-        {/* HERO — full photo with inset gold frame */}
+        {/* HERO */}
         <section className="relative h-[100svh] min-h-[640px] overflow-hidden">
           <img
             key={`hero-${opened}`}
@@ -72,7 +77,7 @@ function Invitation() {
               <Reveal delay={400}>
                 <h1 className="mt-5">
                   <span className="names-caps glow-text block text-[3.6rem] text-ivory">{invite.bride}</span>
-                  <span className="font-display font-light italic my-1 block text-5xl text-gold">&amp;</span>
+                  <Amp className="my-1 block text-5xl" />
                   <span className="names-caps glow-text block text-[3.6rem] text-ivory">{invite.groom}</span>
                 </h1>
               </Reveal>
@@ -82,9 +87,6 @@ function Invitation() {
                   <p className="label-caps text-[0.6rem] text-ivory">{invite.dateShort}</p>
                   <span className="h-px w-10 bg-current opacity-60" />
                 </div>
-                <p className="font-display mt-3 text-sm italic text-ivory/75">
-                  {invite.church.name}, {invite.church.city}
-                </p>
               </Reveal>
             </div>
           </div>
@@ -92,14 +94,14 @@ function Invitation() {
           <a
             href="#love"
             aria-label="Scroll down"
-            className="animate-drift absolute bottom-9 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-gold-soft"
+            className="animate-drift absolute bottom-9 left-1/2 z-10 -translate-x-1/2 text-gold-soft"
           >
-            <span className="h-7 w-px bg-current opacity-70" />
+            <span className="block h-7 w-px bg-current opacity-70" />
           </a>
         </section>
 
         {/* VERSE */}
-        <section id="love" className="bg-blush-paper px-8 pb-16 pt-20 text-center">
+        <section id="love" className="bg-blush-paper px-8 py-20 text-center">
           <Reveal>
             <Cross className="mx-auto h-6 w-4 text-gold" />
             <p className="font-display mx-auto mt-6 max-w-[320px] text-xl font-light italic leading-relaxed text-ink">
@@ -107,78 +109,59 @@ function Invitation() {
             </p>
             <p className="label-caps mt-4 text-[0.5rem] text-wine">{invite.verseRef}</p>
           </Reveal>
-          <Reveal delay={200}>
-            <GoldRule className="my-8" />
-            <p className="font-display mx-auto max-w-[310px] text-base leading-relaxed text-ink-soft">
-              By the grace of God and with the blessings of
-            </p>
-            <p className="font-display mt-4 text-lg text-ink">{invite.brideParents}</p>
-            <p className="font-display font-light italic my-1 text-3xl text-gold">&amp;</p>
-            <p className="font-display text-lg text-ink">{invite.groomParents}</p>
-            <p className="font-display mx-auto mt-4 max-w-[310px] text-base leading-relaxed text-ink-soft">
-              we joyfully invite you to witness the union of their children in holy matrimony.
-            </p>
-          </Reveal>
         </section>
 
         {/* INVITATION CARD */}
-        <section className="bg-peach-paper px-5 pb-20 pt-10">
+        <section className="bg-peach-paper px-5 pb-20 pt-4">
           <Reveal>
-            <SectionHeading eyebrow="You are cordially invited" title="The invitation" />
-          </Reveal>
-          <Reveal delay={150} className="mt-10">
             <InvitationCard />
           </Reveal>
         </section>
 
-        <FloralDivider />
-
-        {/* BRIDE & GROOM */}
-        <section className="bg-blush-paper px-6 py-20">
-          <Reveal>
-            <SectionHeading eyebrow="Two hearts, one faith" title="The bride & the groom" />
+        {/* THE BRIDE */}
+        <section className="bg-blush-paper py-20">
+          <Reveal className="px-8 text-center">
+            <p className="label-caps text-[0.5rem] text-wine">The bride</p>
+            <h2 className="names-caps mt-4 text-5xl text-ink">{invite.bride}</h2>
+            <p className="font-display mt-3 text-sm italic text-ink-soft">Daughter of {invite.brideParents}</p>
           </Reveal>
-
-          <div className="mt-12 space-y-14">
-            <Reveal className="flex items-center gap-5">
-              <PhotoFrame photo={photos.bride} className="aspect-[3/4] w-[52%] shrink-0" />
-              <div className="text-left">
-                <p className="label-caps text-[0.5rem] text-wine">The bride</p>
-                <h3 className="names-caps mt-3 text-4xl text-ink">{invite.bride}</h3>
-                <span className="mt-4 block h-px w-10 bg-gold" />
-                <p className="label-caps mt-4 text-[0.45rem] text-ink-soft">Daughter of</p>
-                <p className="font-display mt-1 text-base italic leading-snug text-ink">{invite.brideParents}</p>
-                <p className="font-display mt-3 text-sm leading-relaxed text-ink-soft">{invite.brideNote}</p>
-              </div>
-            </Reveal>
-
-            <Reveal className="flex flex-row-reverse items-center gap-5">
-              <PhotoFrame photo={photos.groom} className="aspect-[3/4] w-[52%] shrink-0" />
-              <div className="text-right">
-                <p className="label-caps text-[0.5rem] text-wine">The groom</p>
-                <h3 className="names-caps mt-3 text-4xl text-ink">{invite.groom}</h3>
-                <span className="ml-auto mt-4 block h-px w-10 bg-gold" />
-                <p className="label-caps mt-4 text-[0.45rem] text-ink-soft">Son of</p>
-                <p className="font-display mt-1 text-base italic leading-snug text-ink">{invite.groomParents}</p>
-                <p className="font-display mt-3 text-sm leading-relaxed text-ink-soft">{invite.groomNote}</p>
-              </div>
-            </Reveal>
-          </div>
+          <Reveal delay={150} className="mt-8 px-6">
+            <SwipeGallery items={photos.bride} aspect="aspect-[3/4]" />
+          </Reveal>
         </section>
 
-        <FloralDivider />
+        {/* THE GROOM */}
+        <section className="bg-wine-velvet py-20">
+          <Reveal className="px-8 text-center">
+            <p className="label-caps text-[0.5rem] text-gold-soft">The groom</p>
+            <h2 className="names-caps glow-text mt-4 text-5xl text-ivory">{invite.groom}</h2>
+            <p className="font-display mt-3 text-sm italic text-ivory/70">Son of {invite.groomParents}</p>
+          </Reveal>
+          <Reveal delay={150} className="mt-8 px-6">
+            <SwipeGallery items={photos.groom} aspect="aspect-[3/4]" tone="dark" />
+          </Reveal>
+        </section>
+
+        {/* FILM STRIP */}
+        <section className="bg-blush-paper pb-16 pt-20">
+          <Reveal className="px-8">
+            <SectionHeading eyebrow="Our story" title="In frames" />
+          </Reveal>
+          <Reveal delay={150} className="mt-10">
+            <FilmStrip items={photos.filmstrip} />
+          </Reveal>
+        </section>
 
         {/* SCRATCH DATE */}
-        <section className="bg-peach-paper px-6 py-20 text-center">
+        <section className="bg-peach-paper px-6 pb-20 pt-10 text-center">
           <Reveal>
-            <SectionHeading eyebrow="A date to hold close" title="Our forever begins" />
+            <SectionHeading eyebrow="Save the date" title="Our forever begins" />
           </Reveal>
           <Reveal delay={150} className="relative mx-auto mt-10 w-full max-w-[380px]">
             <div className="relative aspect-[900/695]">
               <ScratchReveal className="absolute left-[19%] right-[19%] top-[24%] bottom-[19%] rounded-md bg-ivory">
                 <div className="flex h-full flex-col items-center justify-center px-2">
-                  <p className="label-caps text-[0.45rem] text-ink-soft">Save the date</p>
-                  <p className="names-caps mt-2 text-2xl text-ink">{invite.dateShort}</p>
+                  <p className="names-caps text-2xl text-ink">{invite.dateShort}</p>
                   <p className="font-display mt-1 text-sm italic text-ink-soft">{invite.weekdayTime}</p>
                 </div>
               </ScratchReveal>
@@ -193,24 +176,36 @@ function Invitation() {
               />
             </div>
           </Reveal>
-          <p className="label-caps mt-6 text-[0.5rem] text-ink-soft/80">Scratch to reveal</p>
+        </section>
+
+        {/* TOGETHER — peek gallery */}
+        <section className="bg-plum-night py-20">
+          <Reveal className="px-8">
+            <SectionHeading eyebrow="Together" title="Two hearts, one faith" tone="dark" />
+          </Reveal>
+          <Reveal delay={150} className="mt-8">
+            <SwipeGallery items={photos.together} variant="peek" tone="dark" />
+          </Reveal>
         </section>
 
         {/* COUNTDOWN */}
-        <section className="bg-wine-velvet px-6 py-20">
+        <section className="bg-wine-velvet px-6 py-16">
           <Reveal>
-            <SectionHeading eyebrow="Until we say “I do”" title="Counting every heartbeat" tone="dark" />
+            <p className="label-caps text-center text-[0.5rem] text-gold-soft">Until we say “I do”</p>
             <Countdown dateISO={invite.dateISO} />
           </Reveal>
         </section>
 
-        {/* TOGETHER */}
-        <section className="bg-blush-paper px-8 py-20">
+        {/* MOSAIC */}
+        <section className="bg-blush-paper px-6 py-20">
           <Reveal>
-            <SectionHeading eyebrow="Together" title="Moments, softly held" />
+            <SectionHeading eyebrow="Little forevers" title="Moments we keep" />
           </Reveal>
-          <Reveal delay={150}>
-            <MomentsCarousel />
+          <Reveal delay={150} className="mt-10 grid grid-cols-5 grid-rows-[150px_150px_120px] gap-3">
+            <PhotoFrame photo={photos.mosaic[0]} className="col-span-3 row-span-2" />
+            <PhotoFrame photo={photos.mosaic[1]} className="col-span-2" />
+            <PhotoFrame photo={photos.mosaic[2]} className="col-span-2" />
+            <PhotoFrame photo={photos.mosaic[3]} className="col-span-5" />
           </Reveal>
         </section>
 
@@ -219,25 +214,20 @@ function Invitation() {
         {/* FAMILIES */}
         <section className="bg-peach-paper px-6 py-20 text-center">
           <Reveal>
-            <SectionHeading eyebrow="Our families" title="Two families, one blessing" />
+            <SectionHeading eyebrow="Our families" title="One blessing" />
           </Reveal>
           <Reveal delay={150} className="mt-10">
-            <div className="relative">
-              <PhotoFrame photo={photos.family} shape="rect" className="aspect-[4/3] w-full" />
-              <div className="bg-photo-fade pointer-events-none absolute inset-1.5 rounded-sm" />
-              <p className="label-caps absolute inset-x-0 bottom-6 text-[0.5rem] text-ivory">Together as one family</p>
-            </div>
+            <PhotoFrame photo={photos.family} className="aspect-[4/3] w-full" />
           </Reveal>
-          <div className="mt-12 grid grid-cols-2 gap-5">
+          <div className="mt-8 grid grid-cols-2 gap-4">
             {[
-              { photo: photos.brideFamily, label: "The bride's family", family: invite.brideFamily, parents: invite.brideParents },
-              { photo: photos.groomFamily, label: "The groom's family", family: invite.groomFamily, parents: invite.groomParents },
+              { photo: photos.brideFamily, family: invite.brideFamily, parents: invite.brideParents },
+              { photo: photos.groomFamily, family: invite.groomFamily, parents: invite.groomParents },
             ].map((f, i) => (
-              <Reveal key={f.label} delay={i * 150}>
-                <PhotoFrame photo={f.photo} shape="oval" className="mx-auto aspect-[4/5] w-full" />
-                <p className="label-caps mt-5 text-[0.45rem] text-wine">{f.label}</p>
-                <p className="font-display mt-2 text-lg text-ink">{f.family}</p>
-                <p className="font-display mt-1 text-sm italic text-ink-soft">{f.parents}</p>
+              <Reveal key={f.family} delay={i * 150}>
+                <PhotoFrame photo={f.photo} className="aspect-[4/5] w-full" />
+                <p className="font-display mt-4 text-lg text-ink">{f.family}</p>
+                <p className="font-display text-xs italic text-ink-soft">{f.parents}</p>
               </Reveal>
             ))}
           </div>
@@ -250,9 +240,9 @@ function Invitation() {
           <Reveal>
             <SectionHeading eyebrow="The celebration" title="Order of the day" />
           </Reveal>
-          <ol className="relative mx-auto mt-10 max-w-[300px] border-l border-gold/60 pl-8">
+          <ol className="relative mx-auto mt-10 max-w-[280px] border-l border-gold/60 pl-8">
             {invite.schedule.map((item, i) => (
-              <li key={item.title} className="relative pb-8 last:pb-0">
+              <li key={item.title} className="relative pb-7 last:pb-0">
                 <Reveal delay={i * 120}>
                   <span className="absolute -left-[37px] top-1.5 h-2.5 w-2.5 rotate-45 border border-gold bg-blush" />
                   <p className="label-caps text-[0.5rem] text-wine">{item.time}</p>
@@ -264,28 +254,14 @@ function Invitation() {
         </section>
 
         {/* VENUE */}
-        <section className="bg-blush-paper px-6 pb-20 pt-4">
+        <section className="bg-blush-paper px-6 pb-20">
           <Reveal>
-            <div className="bg-plum-night shadow-card mx-auto max-w-[380px] overflow-hidden rounded-t-[999px] border border-gold/40 p-2 text-center">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-t-[999px]">
-                <img
-                  src={photos.venue.src}
-                  alt={photos.venue.alt}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                  style={{ objectPosition: photos.venue.position }}
-                />
-                <div className="bg-photo-fade absolute inset-0" />
-                <div className="pointer-events-none absolute inset-2 rounded-t-[999px] border border-gold/40" />
-                <p className="label-caps absolute inset-x-0 bottom-6 text-[0.5rem] text-gold-soft">The ceremony</p>
-              </div>
+            <div className="bg-plum-night shadow-card relative mx-auto max-w-[380px] border border-gold/40 p-2 text-center">
+              <PhotoFrame photo={photos.venue} tone="dark" className="aspect-[4/5] w-full border-0 p-0" />
               <div className="px-6 pb-10 pt-8">
-                <Cross className="mx-auto h-5 w-4 text-gold" />
+                <p className="label-caps text-[0.5rem] text-gold-soft">The ceremony</p>
                 <h3 className="names-caps glow-text mt-4 text-3xl leading-tight text-ivory">{invite.church.name}</h3>
-                <p className="font-display mt-3 italic text-ivory/70">{invite.church.address}</p>
-                <p className="label-caps mt-4 text-[0.5rem] text-gold-soft">
-                  {invite.weekday} · {invite.dateLong} · 4:00 PM
-                </p>
+                <p className="font-display mt-3 text-sm italic text-ivory/70">{invite.church.address}</p>
                 <a
                   href={invite.church.mapsUrl}
                   target="_blank"
@@ -306,53 +282,41 @@ function Invitation() {
           <Reveal>
             <SectionHeading eyebrow="The festivities" title="Days filled with joy" />
           </Reveal>
-          <div className="mt-12 space-y-14">
-            {invite.festivities.map((f, i) => {
-              const photo = photos.events[f.photo];
-              return (
-                <Reveal key={f.name} delay={100}>
-                  <article className="bg-ivory-paper shadow-card relative border border-gold/40 p-2">
-                    <div className="relative aspect-[16/10] overflow-hidden">
-                      <img
-                        src={photo.src}
-                        alt={photo.alt}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105"
-                        style={{ objectPosition: photo.position }}
-                      />
-                      <div className="pointer-events-none absolute inset-2 border border-ivory/50" />
-                    </div>
-                    <span className="names-caps relative mx-auto -mt-6 flex h-12 w-12 items-center justify-center rounded-full border border-gold bg-ivory text-lg text-wine shadow-sm">
-                      {ROMAN[i]}
-                    </span>
-                    <div className="px-6 pb-7 pt-4 text-center">
-                      <h3 className="names-caps text-[1.7rem] text-ink">{f.name}</h3>
-                      <p className="label-caps mt-3 text-[0.5rem] text-wine">{f.when}</p>
-                      <p className="font-display mt-2 italic text-ink-soft">{f.where}</p>
-                      <a
-                        href={f.mapsUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="label-caps mt-5 inline-block border-b border-gold pb-0.5 text-[0.45rem] text-ink-soft hover:text-wine"
-                      >
-                        View on Google Maps
-                      </a>
-                    </div>
-                  </article>
-                </Reveal>
-              );
-            })}
+          <div className="mt-12 space-y-12">
+            {invite.festivities.map((f, i) => (
+              <Reveal key={f.name} delay={100}>
+                <article className="bg-ivory-paper shadow-card relative border border-gold/40 p-2">
+                  <PhotoFrame photo={photos.events[f.photo]} className="aspect-[16/10] w-full border-0 p-0 shadow-none" />
+                  <span className="names-caps relative mx-auto -mt-6 flex h-12 w-12 items-center justify-center rounded-full border border-gold bg-ivory text-lg text-wine shadow-sm">
+                    {ROMAN[i]}
+                  </span>
+                  <div className="px-6 pb-7 pt-4 text-center">
+                    <h3 className="names-caps text-[1.7rem] text-ink">{f.name}</h3>
+                    <p className="label-caps mt-3 text-[0.5rem] text-wine">{f.when}</p>
+                    <p className="font-display mt-2 italic text-ink-soft">{f.where}</p>
+                    <a
+                      href={f.mapsUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="label-caps mt-5 inline-block border-b border-gold pb-0.5 text-[0.45rem] text-ink-soft hover:text-wine"
+                    >
+                      View on Google Maps
+                    </a>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </section>
 
         {/* DRESS CODE */}
-        <section className="bg-blush-paper px-8 py-20 text-center">
+        <section className="bg-blush-paper px-8 pb-20 pt-4 text-center">
           <Reveal>
-            <SectionHeading eyebrow="Dress code" title={invite.dressCode.title} />
-            <p className="font-display mt-3 italic text-ink-soft">{invite.dressCode.note}</p>
-            <div className="mt-6 flex justify-center gap-3" aria-hidden>
-              {["bg-ivory", "bg-blush-deep", "bg-gold-soft", "bg-wine", "bg-plum"].map((c) => (
-                <span key={c} className={`${c} h-7 w-7 rounded-full border border-gold/50 shadow-sm`} />
+            <p className="label-caps text-[0.5rem] text-wine">Dress code</p>
+            <p className="font-display mt-3 text-xl italic text-ink">{invite.dressCode.title}</p>
+            <div className="mt-5 flex justify-center gap-3" aria-hidden>
+              {["bg-ivory", "bg-blush-deep", "bg-gold-soft", "bg-wine", "bg-wine-deep"].map((c) => (
+                <span key={c} className={`${c} h-6 w-6 rounded-full border border-gold/50 shadow-sm`} />
               ))}
             </div>
           </Reveal>
@@ -360,38 +324,27 @@ function Invitation() {
 
         <FloralDivider flip />
 
-        {/* CLOSING — couple photo + invitation message */}
+        {/* CLOSING */}
         <section className="bg-plum-night px-6 pb-24 pt-20 text-center">
           <Reveal>
-            <p className="label-caps text-[0.5rem] text-gold-soft">With love & gratitude</p>
-            <PhotoFrame photo={photos.closing} className="mx-auto mt-8 aspect-[3/4] w-[78%]" />
+            <PhotoFrame photo={photos.closing} tone="dark" className="mx-auto aspect-[3/4] w-[82%]" />
           </Reveal>
           <Reveal delay={150}>
             <h2 className="mt-10">
               <span className="names-caps glow-text block text-5xl text-ivory">{invite.bride}</span>
-              <span className="font-display font-light italic block text-4xl text-gold">&amp;</span>
+              <Amp className="block text-4xl" />
               <span className="names-caps glow-text block text-5xl text-ivory">{invite.groom}</span>
             </h2>
             <Flourish className="mx-auto mt-6 h-3 w-16 text-gold-soft" />
           </Reveal>
           <Reveal delay={300}>
-            <p className="font-display mx-auto mt-6 max-w-[320px] text-lg font-light italic leading-relaxed text-ivory/85">
+            <p className="font-display mx-auto mt-6 max-w-[310px] text-lg font-light italic leading-relaxed text-ivory/85">
               {invite.closingMessage}
             </p>
-            <p className="font-display mt-6 text-base text-ivory/70">
-              We can't wait to celebrate with you.
+            <p className="label-caps mt-6 text-[0.45rem] text-gold-soft/70">
+              With {invite.brideFamily} & {invite.groomFamily}
             </p>
-            <p className="font-script mt-6 text-4xl text-gold-soft">
-              {invite.bride} <span className="font-display text-3xl font-light italic">&amp;</span> {invite.groom}
-            </p>
-            <p className="label-caps mt-3 text-[0.45rem] text-ivory/60">
-              with {invite.brideFamily} & {invite.groomFamily}
-            </p>
-            <div className="mx-auto mt-10 flex items-center justify-center gap-3 text-gold">
-              <span className="h-px w-10 bg-current opacity-50" />
-              <Cross className="h-5 w-4" />
-              <span className="h-px w-10 bg-current opacity-50" />
-            </div>
+            <GoldRule className="mt-10" />
             <p className="label-caps mt-4 text-[0.45rem] text-gold-soft/80">
               {invite.dateLong} · {invite.church.name}
             </p>
