@@ -3,11 +3,9 @@ export const invite = {
   bride: "Grace",
   brideParents: "Mr. & Mrs. Thomas Mathew",
   brideFamily: "The Mathew Family",
-  brideNote: "Beloved daughter, gentle soul, and the answer to many prayers.",
   groom: "Daniel",
   groomParents: "Mr. & Mrs. George Joseph",
   groomFamily: "The Joseph Family",
-  groomNote: "Cherished son, steadfast heart, and a man of quiet faith.",
   verse: "Love is patient, love is kind… it always protects, always trusts, always hopes, always perseveres.",
   verseRef: "1 Corinthians 13:4–7",
   // Ceremony date & time (India Standard Time)

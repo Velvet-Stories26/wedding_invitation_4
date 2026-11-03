@@ -56,17 +56,18 @@
 :root {
   --radius: 0.5rem;
 
-  --wine: oklch(0.36 0.14 18);
-  --wine-deep: oklch(0.2 0.08 15);
-  --plum: oklch(0.24 0.06 340);
-  --plum-deep: oklch(0.15 0.04 340);
-  --blush: oklch(0.962 0.016 50);
-  --blush-deep: oklch(0.91 0.035 30);
-  --gold: oklch(0.8 0.1 80);
-  --gold-soft: oklch(0.88 0.06 85);
-  --ivory: oklch(0.97 0.015 80);
-  --ink: oklch(0.32 0.08 350);
-  --ink-soft: oklch(0.5 0.06 350);
+  /* Palette: oxblood burgundy, espresso night, champagne ivory, antique gold */
+  --wine: oklch(0.34 0.11 20);
+  --wine-deep: oklch(0.17 0.045 22);
+  --plum: oklch(0.23 0.04 28);
+  --plum-deep: oklch(0.13 0.02 35);
+  --blush: oklch(0.965 0.012 78);
+  --blush-deep: oklch(0.89 0.03 45);
+  --gold: oklch(0.74 0.09 78);
+  --gold-soft: oklch(0.86 0.06 85);
+  --ivory: oklch(0.975 0.012 85);
+  --ink: oklch(0.27 0.035 30);
+  --ink-soft: oklch(0.47 0.03 40);
 
   --background: var(--plum-deep);
   --foreground: var(--ink);
@@ -78,27 +79,27 @@
   --primary-foreground: var(--ivory);
   --secondary: var(--plum);
   --secondary-foreground: var(--ivory);
-  --muted: oklch(0.92 0.02 340);
+  --muted: oklch(0.93 0.015 75);
   --muted-foreground: var(--ink-soft);
   --accent: var(--gold);
   --accent-foreground: var(--wine-deep);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: var(--ivory);
-  --border: oklch(0.8 0.05 350 / 50%);
-  --input: oklch(0.8 0.05 350 / 50%);
+  --border: oklch(0.8 0.04 70 / 50%);
+  --input: oklch(0.8 0.04 70 / 50%);
   --ring: var(--gold);
 
-  --gradient-blush: linear-gradient(180deg, var(--blush) 0%, oklch(0.94 0.024 40) 100%);
-  --gradient-peach: linear-gradient(180deg, oklch(0.94 0.024 40) 0%, var(--blush-deep) 55%, var(--blush) 100%);
+  --gradient-blush: linear-gradient(180deg, var(--blush) 0%, oklch(0.945 0.018 75) 100%);
+  --gradient-peach: linear-gradient(180deg, oklch(0.945 0.018 75) 0%, oklch(0.925 0.025 65) 55%, var(--blush) 100%);
   --gradient-plum: radial-gradient(120% 90% at 50% 0%, var(--plum) 0%, var(--plum-deep) 75%);
-  --gradient-wine: radial-gradient(90% 70% at 50% 40%, oklch(0.4 0.15 20) 0%, var(--wine-deep) 80%);
-  --gradient-hero-veil: linear-gradient(180deg, oklch(0.12 0.04 15 / 75%) 0%, oklch(0.12 0.04 15 / 10%) 30%, oklch(0.12 0.04 15 / 25%) 50%, oklch(0.1 0.04 15 / 92%) 85%);
-  --gradient-ivory: linear-gradient(160deg, var(--ivory) 0%, oklch(0.94 0.025 75) 100%);
-  --gradient-invite-fade: linear-gradient(90deg, transparent 0%, transparent 22%, oklch(0.97 0.015 80 / 85%) 48%, var(--ivory) 62%);
-  --gradient-photo-fade: linear-gradient(180deg, transparent 55%, oklch(0.12 0.04 15 / 70%) 100%);
-  --gradient-scratch: linear-gradient(135deg, oklch(0.86 0.05 330), oklch(0.78 0.07 320) 50%, oklch(0.88 0.04 340));
-  --shadow-glow: 0 0 60px -10px oklch(0.8 0.1 80 / 55%);
-  --shadow-card: 0 30px 60px -30px oklch(0.15 0.05 340 / 60%);
+  --gradient-wine: radial-gradient(100% 75% at 50% 35%, oklch(0.36 0.11 20) 0%, var(--wine-deep) 85%);
+  --gradient-hero-veil: linear-gradient(180deg, oklch(0.12 0.03 25 / 75%) 0%, oklch(0.12 0.03 25 / 10%) 30%, oklch(0.12 0.03 25 / 25%) 50%, oklch(0.1 0.03 25 / 92%) 85%);
+  --gradient-ivory: linear-gradient(160deg, var(--ivory) 0%, oklch(0.94 0.022 78) 100%);
+  --gradient-invite-fade: linear-gradient(90deg, transparent 0%, transparent 22%, oklch(0.975 0.012 85 / 85%) 48%, var(--ivory) 62%);
+  --gradient-photo-fade: linear-gradient(180deg, transparent 55%, oklch(0.12 0.03 25 / 70%) 100%);
+  --gradient-scratch: linear-gradient(135deg, oklch(0.88 0.04 80), oklch(0.8 0.06 70) 50%, oklch(0.9 0.035 85));
+  --shadow-glow: 0 0 60px -10px oklch(0.74 0.09 78 / 55%);
+  --shadow-card: 0 30px 60px -30px oklch(0.13 0.03 30 / 55%);
 }
 
 @layer base {
