@@ -73,7 +73,7 @@ function Invitation() {
               <Reveal delay={400}>
                 <h1 className="mt-5">
                   <span className="names-caps glow-text block text-[3.6rem] text-ivory">{invite.bride}</span>
-                  <span className="font-script my-1 block text-5xl text-gold">&amp;</span>
+                  <span className="font-display font-light italic my-1 block text-5xl text-gold">&amp;</span>
                   <span className="names-caps glow-text block text-[3.6rem] text-ivory">{invite.groom}</span>
                 </h1>
               </Reveal>
@@ -114,7 +114,7 @@ function Invitation() {
               By the grace of God and with the blessings of
             </p>
             <p className="font-display mt-4 text-lg text-ink">{invite.brideParents}</p>
-            <p className="font-script my-1 text-3xl text-gold">&amp;</p>
+            <p className="font-display font-light italic my-1 text-3xl text-gold">&amp;</p>
             <p className="font-display text-lg text-ink">{invite.groomParents}</p>
             <p className="font-display mx-auto mt-4 max-w-[310px] text-base leading-relaxed text-ink-soft">
               we joyfully invite you to witness the union of their children in holy matrimony.
@@ -370,7 +370,7 @@ function Invitation() {
           <Reveal delay={150}>
             <h2 className="mt-10">
               <span className="names-caps glow-text block text-5xl text-ivory">{invite.bride}</span>
-              <span className="font-script block text-4xl text-gold">&amp;</span>
+              <span className="font-display font-light italic block text-4xl text-gold">&amp;</span>
               <span className="names-caps glow-text block text-5xl text-ivory">{invite.groom}</span>
             </h2>
             <Flourish className="mx-auto mt-6 h-3 w-16 text-gold-soft" />
@@ -382,7 +382,9 @@ function Invitation() {
             <p className="font-display mt-6 text-base text-ivory/70">
               We can't wait to celebrate with you.
             </p>
-            <p className="font-script mt-6 text-4xl text-gold-soft">{couple}</p>
+            <p className="font-script mt-6 text-4xl text-gold-soft">
+              {invite.bride} <span className="font-display text-3xl font-light italic">&amp;</span> {invite.groom}
+            </p>
             <p className="label-caps mt-3 text-[0.45rem] text-ivory/60">
               with {invite.brideFamily} & {invite.groomFamily}
             </p>

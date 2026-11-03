@@ -31,7 +31,7 @@ export function InvitationCard() {
         <p className="label-caps mt-3 text-[0.42rem] text-ink-soft">The wedding of</p>
         <span className="mt-2 h-px w-10 bg-gold/60" />
         <p className="names-caps mt-4 text-[2.5rem] text-ink">{invite.bride}</p>
-        <p className="font-script -my-1 text-4xl text-gold">&amp;</p>
+        <p className="font-display font-light italic -my-1 text-4xl text-gold">&amp;</p>
         <p className="names-caps text-[2.5rem] text-ink">{invite.groom}</p>
         <p className="label-caps mt-4 text-[0.38rem] leading-relaxed text-ink-soft">Together with their families</p>
         <p className="font-display mt-1 text-[0.7rem] italic leading-snug text-ink-soft">
