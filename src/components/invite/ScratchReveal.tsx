@@ -20,30 +20,44 @@ export function ScratchReveal({ children, className }: { children: ReactNode; cl
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     ctx.scale(dpr, dpr);
+    let cancelled = false;
 
-    const css = getComputedStyle(document.documentElement);
-    const grad = ctx.createLinearGradient(0, 0, width, height);
-    grad.addColorStop(0, css.getPropertyValue("--blush").trim() || "#efe3ea");
-    grad.addColorStop(0.5, "oklch(0.78 0.07 320)");
-    grad.addColorStop(1, css.getPropertyValue("--blush-deep").trim() || "#f1d9d2");
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, width, height);
+    const draw = () => {
+      if (cancelled) return;
+      const css = getComputedStyle(document.documentElement);
+      ctx.globalCompositeOperation = "source-over";
+      const grad = ctx.createLinearGradient(0, 0, width, height);
+      grad.addColorStop(0, css.getPropertyValue("--blush").trim() || "#efe3ea");
+      grad.addColorStop(0.5, "oklch(0.78 0.07 320)");
+      grad.addColorStop(1, css.getPropertyValue("--blush-deep").trim() || "#f1d9d2");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
 
-    // shimmer specks
-    ctx.fillStyle = "oklch(1 0 0 / 0.35)";
-    for (let i = 0; i < 140; i++) {
-      ctx.beginPath();
-      ctx.arc(Math.random() * width, Math.random() * height, Math.random() * 1.4, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    ctx.fillStyle = css.getPropertyValue("--wine").trim() || "#6b1f2a";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.font = `32px "Great Vibes", cursive`;
-    ctx.fillText("Scratch here", width / 2, height / 2 - 4);
-    ctx.font = `600 9px "Cinzel", serif`;
-    ctx.fillText("✦  WITH YOUR FINGER  ✦", width / 2, height / 2 + 26);
-    ctx.globalCompositeOperation = "destination-out";
+      // shimmer specks
+      ctx.fillStyle = "oklch(1 0 0 / 0.35)";
+      for (let i = 0; i < 140; i++) {
+        ctx.beginPath();
+        ctx.arc(Math.random() * width, Math.random() * height, Math.random() * 1.4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.fillStyle = css.getPropertyValue("--wine").trim() || "#6b1f2a";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.font = `34px "Great Vibes", cursive`;
+      ctx.fillText("Scratch here", width / 2, height / 2 - 4);
+      ctx.font = `600 9px "Cinzel", serif`;
+      ctx.fillText("✦  WITH YOUR FINGER  ✦", width / 2, height / 2 + 26);
+      ctx.globalCompositeOperation = "destination-out";
+    };
+
+    draw();
+    // Redraw once the script fonts arrive so the label isn't stuck in a fallback font.
+    Promise.all([document.fonts.load('34px "Great Vibes"'), document.fonts.load('600 9px "Cinzel"')])
+      .then(() => moves.current === 0 && draw())
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const scratchAt = (clientX: number, clientY: number) => {
