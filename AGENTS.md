@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project rules
+- All invitation text (names, dates, venues, schedule, events) lives in `src/components/invite/invite-data.ts`; components read from it so content edits never touch layout.
+- The invite is a single mobile-width column (max 480px) on `/`; keep new sections inside that column so it reads like a phone invitation on every screen.
+- Tailwind-merge treats any `text-*` class as a color, so custom text effects use non-`text-` utility names (e.g. `glow-text`).
