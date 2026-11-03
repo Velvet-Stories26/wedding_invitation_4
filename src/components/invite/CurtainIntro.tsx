@@ -83,7 +83,7 @@ export function CurtainIntro({ onOpened }: { onOpened: () => void }) {
             <svg width="48" height="12" viewBox="0 0 48 12" className="mx-auto mb-2 fill-gold-soft" aria-hidden>
               <path d="M24 0 L26 5 L24 12 L22 5 Z M0 6 Q12 2 21 6 Q12 10 0 6 Z M48 6 Q36 2 27 6 Q36 10 48 6 Z" />
             </svg>
-            <p className="font-display text-glow text-2xl italic tracking-wide text-ivory">tap to open</p>
+            <p className="font-display glow-text text-2xl italic tracking-wide text-ivory">tap to open</p>
           </div>
         </div>
       </button>

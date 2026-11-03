@@ -153,7 +153,7 @@
 @utility shadow-card {
   box-shadow: var(--shadow-card);
 }
-@utility text-glow {
+@utility glow-text {
   text-shadow: 0 0 18px oklch(0.8 0.1 80 / 55%);
 }
 

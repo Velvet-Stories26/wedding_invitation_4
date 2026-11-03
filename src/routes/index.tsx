@@ -73,14 +73,14 @@ function Invitation() {
               <p className="label-caps text-[0.55rem] text-ivory/80">We request your presence</p>
             </Reveal>
             <Reveal delay={300}>
-              <h1 className="font-script text-glow mt-4 text-6xl text-ivory">{invite.bride}</h1>
+              <h1 className="font-script glow-text mt-4 text-6xl text-ivory">{invite.bride}</h1>
               <p className="label-caps mt-1 text-[0.5rem] text-gold-soft/80">Daughter of {invite.brideParents}</p>
             </Reveal>
             <Reveal delay={450}>
               <p className="font-script my-3 text-3xl text-gold">&amp;</p>
             </Reveal>
             <Reveal delay={600}>
-              <h1 className="font-script text-glow text-6xl text-ivory">{invite.groom}</h1>
+              <h1 className="font-script glow-text text-6xl text-ivory">{invite.groom}</h1>
               <p className="label-caps mt-1 text-[0.5rem] text-gold-soft/80">Son of {invite.groomParents}</p>
             </Reveal>
             <Reveal delay={750}>
@@ -196,7 +196,7 @@ function Invitation() {
             <div className="bg-plum-night shadow-card mx-auto max-w-[360px] rounded-t-[999px] border border-gold/40 px-8 pb-12 pt-20 text-center">
               <p className="label-caps text-gold-soft">The ceremony</p>
               <Cross className="mx-auto mt-4 h-5 w-4 text-gold" />
-              <h3 className="font-script text-glow mt-4 text-5xl text-ivory">{invite.church.name}</h3>
+              <h3 className="font-script glow-text mt-4 text-5xl text-ivory">{invite.church.name}</h3>
               <p className="font-display mt-2 italic text-ivory/70">{invite.church.city}</p>
               <a
                 href={invite.church.mapsUrl}

@@ -24,7 +24,7 @@ export function Countdown({ dateISO }: { dateISO: string }) {
     <div className="mt-8 grid grid-cols-4 gap-2">
       {(["Days", "Hours", "Minutes", "Seconds"] as const).map((unit) => (
         <div key={unit} className="text-center">
-          <div className="font-display text-glow text-4xl font-light tabular-nums text-ivory">
+          <div className="font-display glow-text text-4xl font-light tabular-nums text-ivory">
             {left ? String(left[unit]).padStart(2, "0") : "--"}
           </div>
           <div className="label-caps mt-1 text-[0.5rem] text-gold-soft/80">{unit}</div>
