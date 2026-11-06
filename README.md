@@ -1,24 +1,29 @@
-# Video-Inspired Website
+# Wedding Invitation
 
-design a website as in video I send within the credits I have
+This is a React single-page app built with Vite.
 
-This project was built with [Lovable](https://lovable.dev).
+## Run locally
 
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/ee5cdeee-1652-499d-abfb-6e1a646b7fa8).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Install [Node.js](https://nodejs.org/) 22 or newer, then run:
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+Vite prints a local URL to open in your browser.
+
+## Build and preview
+
+```sh
+npm run build
+npm run preview
+```
+
+## Deploy to GitHub Pages
+
+The workflow in `.github/workflows/deploy.yml` builds and deploys the site when
+changes are pushed to `main`. In the repository's **Settings → Pages**, set
+**Build and deployment → Source** to **GitHub Actions**. The build automatically
+uses the repository subpath for project sites and the root path for user or
+organization sites.
