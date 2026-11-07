@@ -291,22 +291,23 @@ function Invitation() {
         {/* VENUE */}
         <section className="bg-blush-paper px-6 pb-20">
           <Reveal>
-            <div className="bg-plum-night shadow-card relative mx-auto max-w-[380px] border border-gold/40 p-2 text-center">
+            <div className="bg-wine-velvet shadow-card relative mx-auto max-w-[380px] border border-gold/50 p-2 text-center">
               <PhotoFrame
                 photo={photos.venue}
                 tone="dark"
                 className="aspect-[16/10] w-full border-0 p-0"
               />
-              <div className="px-6 pb-10 pt-8">
+              <div className="px-5 pb-9 pt-7">
                 <p className="label-caps text-[0.5rem] text-gold-soft">The ceremony</p>
-                <h3 className="names-caps glow-text mt-4 text-2xl leading-tight text-ivory">
+                <Flourish className="mx-auto mt-3 h-2.5 w-12 text-gold" />
+                <h3 className="names-caps glow-text mx-auto mt-4 max-w-[290px] text-xl leading-snug text-ivory">
                   {invite.church.name}
                 </h3>
                 <a
                   href={invite.church.mapsUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="label-caps mt-7 inline-block border border-gold/60 px-5 py-3 text-[0.5rem] text-gold-soft transition-colors hover:bg-gold hover:text-wine-deep"
+                  className="label-caps mt-6 inline-block border border-gold/60 bg-wine-deep/25 px-5 py-3 text-[0.48rem] text-gold-soft transition-colors hover:bg-gold hover:text-wine-deep"
                 >
                   View on Google Maps
                 </a>
