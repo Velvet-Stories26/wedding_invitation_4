@@ -37,19 +37,17 @@ export function InvitationCard() {
           &amp; {invite.groomParents}
         </p>
         <span className="mt-2 h-px w-14 bg-gold/60" />
-        <p className="label-caps mt-2 text-[0.4rem] text-ink sm:text-[0.45rem]">{invite.weekday}</p>
-        <p className="label-caps mt-1 text-[0.4rem] text-ink sm:text-[0.45rem]">
-          {invite.dateLong}
-        </p>
+        <p className="label-caps mt-2 text-[0.4rem] text-ink sm:text-[0.45rem]">Engagement</p>
         <p className="font-display mt-1 text-[0.65rem] italic text-ink-soft sm:text-[0.75rem]">
-          {invite.timeWords}
+          {invite.engagementDate}
+        </p>
+        <p className="label-caps mt-2 text-[0.4rem] text-ink sm:text-[0.45rem]">Marriage</p>
+        <p className="font-display mt-1 text-[0.65rem] italic text-ink-soft sm:text-[0.75rem]">
+          {invite.dateLong}
         </p>
         <span className="mt-2 h-px w-14 bg-gold/60" />
         <p className="label-caps mt-2 text-[0.4rem] text-ink sm:text-[0.45rem]">
           {invite.church.name}
-        </p>
-        <p className="label-caps mt-1 text-[0.36rem] text-ink-soft sm:text-[0.4rem]">
-          {invite.church.city}
         </p>
         <Flourish className="mt-2 h-2.5 w-10 rotate-180 text-gold" />
       </Reveal>
