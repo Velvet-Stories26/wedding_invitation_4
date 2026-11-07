@@ -86,11 +86,11 @@ function Invitation() {
               </Reveal>
               <Reveal delay={400}>
                 <h1 className="mt-5">
-                  <span className="names-caps glow-text block text-[3.6rem] text-ivory">
+                  <span className="names-caps glow-text block text-[2.6rem] text-ivory sm:text-[3rem]">
                     {invite.bride}
                   </span>
-                  <Amp className="my-1 block text-5xl" />
-                  <span className="names-caps glow-text block text-[3.6rem] text-ivory">
+                  <Amp className="my-1 block text-4xl" />
+                  <span className="names-caps glow-text block text-[2.6rem] text-ivory sm:text-[3rem]">
                     {invite.groom}
                   </span>
                 </h1>
@@ -182,10 +182,10 @@ function Invitation() {
             <div className="relative aspect-[900/695]">
               <ScratchReveal className="absolute left-[19%] right-[19%] top-[24%] bottom-[19%] rounded-md bg-ivory">
                 <div className="flex h-full flex-col items-center justify-center px-2">
-                  <p className="label-caps text-[0.45rem] text-wine">Engagement</p>
-                  <p className="names-caps mt-1 text-lg text-ink">{invite.engagementDateShort}</p>
-                  <p className="label-caps mt-3 text-[0.45rem] text-wine">Marriage</p>
-                  <p className="names-caps mt-1 text-lg text-ink">{invite.dateShort}</p>
+                  <p className="label-caps text-[0.45rem] text-wine">Marriage</p>
+                  <p className="font-script mt-1 text-4xl leading-tight text-wine">
+                    {invite.dateDisplay}
+                  </p>
                 </div>
               </ScratchReveal>
               <img
@@ -342,9 +342,10 @@ function Invitation() {
                       href={f.mapsUrl}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label={`View ${f.name === "Engagement" ? "engagement hall" : "church"} location on Google Maps`}
                       className="label-caps mt-5 inline-block border-b border-gold pb-0.5 text-[0.45rem] text-ink-soft hover:text-wine"
                     >
-                      View on Google Maps
+                      View location
                     </a>
                   </div>
                 </article>

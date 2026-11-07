@@ -12,8 +12,7 @@ export const invite = {
   dateISO: "2026-12-22T00:00:00+05:30",
   dateLong: "Tuesday, December 22, 2026",
   dateShort: "22 · 12 · 2026",
-  engagementDate: "Sunday, December 20, 2026",
-  engagementDateShort: "20 · 12 · 2026",
+  dateDisplay: "Dec 22, 2026",
   church: {
     name: "The Church",
     mapsUrl: "https://maps.app.goo.gl/KSmK5zasWSW7gxdX9?g_st=aw",
