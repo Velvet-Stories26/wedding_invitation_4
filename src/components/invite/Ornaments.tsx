@@ -10,11 +10,7 @@ export function FloralDivider({ className, flip }: { className?: string; flip?: 
       loading="lazy"
       width={1200}
       height={134}
-      className={cn(
-        "pointer-events-none relative z-10 mx-auto -my-5 block w-[115%] max-w-none -translate-x-[6.5%] select-none",
-        flip && "rotate-180",
-        className,
-      )}
+      className={cn("pointer-events-none relative z-10 mx-auto -my-5 block w-full select-none", flip && "rotate-180", className)}
     />
   );
 }
