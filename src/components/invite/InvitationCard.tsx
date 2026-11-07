@@ -1,52 +1,58 @@
-import frame from "@/assets/floral-divider.webp";
 import { Flourish } from "./Ornaments";
 import { invite } from "./invite-data";
 import { photos } from "./photos";
+import { Reveal } from "./Reveal";
 
-/** Printed-style invitation card: couple photo on the left, arched text panel on the right. */
+/** Full-screen invitation page with the couple's photo behind the invitation details. */
 export function InvitationCard() {
   const p = photos.invitation;
   return (
-    <div className="bg-ivory-paper shadow-card relative mx-auto aspect-[5/7] w-full max-w-[420px] overflow-hidden">
+    <section
+      aria-label="Wedding invitation"
+      className="relative left-1/2 isolate h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-ink"
+    >
       <img
         src={p.src}
         alt={p.alt}
-        loading="lazy"
-        className="absolute inset-y-0 left-0 h-full w-[62%] object-cover"
+        className="absolute inset-0 h-full w-full object-cover"
         style={{ objectPosition: p.position }}
       />
       <div className="bg-invite-fade absolute inset-0" />
-      <img
-        src={frame}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        className="pointer-events-none absolute -bottom-2 -right-16 w-[80%] rotate-[-8deg] opacity-90"
-      />
-      <div className="pointer-events-none absolute inset-2.5 border border-gold/50" />
-      <div className="pointer-events-none absolute inset-3.5 border border-gold/25" />
+      <div className="pointer-events-none absolute inset-3 border border-gold/60 md:inset-6" />
+      <div className="pointer-events-none absolute inset-5 border border-gold/25 md:inset-8" />
 
-      <div className="absolute bottom-[9%] right-[5%] top-[5%] flex w-[57%] flex-col items-center justify-center rounded-t-[999px] border border-gold/60 px-3 text-center">
+      <Reveal className="absolute bottom-[5%] right-[4%] top-[5%] flex w-[min(56%,420px)] flex-col items-center justify-center px-3 text-center sm:px-6 md:right-[8%] md:w-[min(42%,480px)]">
         <Flourish className="h-2.5 w-10 text-gold" />
-        <p className="label-caps mt-3 text-[0.42rem] text-ink-soft">The wedding of</p>
+        <p className="label-caps mt-2 text-[0.42rem] text-ink-soft">The wedding of</p>
         <span className="mt-2 h-px w-10 bg-gold/60" />
-        <p className="names-caps mt-4 text-[2.5rem] text-ink">{invite.bride}</p>
-        <p className="font-display font-light italic -my-1 text-4xl text-gold">&amp;</p>
-        <p className="names-caps text-[2.5rem] text-ink">{invite.groom}</p>
-        <p className="label-caps mt-4 text-[0.38rem] leading-relaxed text-ink-soft">Together with their families</p>
-        <p className="font-display mt-1 text-[0.7rem] italic leading-snug text-ink-soft">
-          {invite.brideParents}
-          <br />& {invite.groomParents}
+        <p className="names-caps mt-3 text-[2rem] text-ink sm:text-[2.5rem]">{invite.bride}</p>
+        <p className="font-display font-light italic -my-1 text-3xl text-gold sm:text-4xl">&amp;</p>
+        <p className="names-caps text-[2rem] text-ink sm:text-[2.5rem]">{invite.groom}</p>
+        <p className="label-caps mt-3 text-[0.36rem] leading-relaxed text-ink-soft sm:text-[0.42rem]">
+          Together with their families
         </p>
-        <span className="mt-3 h-px w-14 bg-gold/60" />
-        <p className="label-caps mt-3 text-[0.45rem] text-ink">{invite.weekday}</p>
-        <p className="label-caps mt-1 text-[0.45rem] text-ink">{invite.dateLong}</p>
-        <p className="font-display mt-1 text-[0.7rem] italic text-ink-soft">{invite.timeWords}</p>
-        <span className="mt-3 h-px w-14 bg-gold/60" />
-        <p className="label-caps mt-3 text-[0.45rem] text-ink">{invite.church.name}</p>
-        <p className="label-caps mt-1 text-[0.38rem] text-ink-soft">{invite.church.city}</p>
-        <Flourish className="mt-3 h-2.5 w-10 rotate-180 text-gold" />
-      </div>
-    </div>
+        <p className="font-display mt-1 text-[0.65rem] italic leading-snug text-ink-soft sm:text-[0.8rem]">
+          {invite.brideParents}
+          <br />
+          &amp; {invite.groomParents}
+        </p>
+        <span className="mt-2 h-px w-14 bg-gold/60" />
+        <p className="label-caps mt-2 text-[0.4rem] text-ink sm:text-[0.45rem]">{invite.weekday}</p>
+        <p className="label-caps mt-1 text-[0.4rem] text-ink sm:text-[0.45rem]">
+          {invite.dateLong}
+        </p>
+        <p className="font-display mt-1 text-[0.65rem] italic text-ink-soft sm:text-[0.75rem]">
+          {invite.timeWords}
+        </p>
+        <span className="mt-2 h-px w-14 bg-gold/60" />
+        <p className="label-caps mt-2 text-[0.4rem] text-ink sm:text-[0.45rem]">
+          {invite.church.name}
+        </p>
+        <p className="label-caps mt-1 text-[0.36rem] text-ink-soft sm:text-[0.4rem]">
+          {invite.church.city}
+        </p>
+        <Flourish className="mt-2 h-2.5 w-10 rotate-180 text-gold" />
+      </Reveal>
+    </section>
   );
 }

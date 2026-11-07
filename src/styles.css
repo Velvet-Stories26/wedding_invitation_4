@@ -114,6 +114,7 @@
     background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-display);
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
   }
 }

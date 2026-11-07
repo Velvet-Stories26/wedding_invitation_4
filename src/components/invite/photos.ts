@@ -4,12 +4,21 @@
 import rings from "@/assets/moment-rings.jpg";
 import walk from "@/assets/moment-walk.jpg";
 import stage from "@/assets/stage.jpg";
+import invitationBackground from "@/assets/invitation-bg.png";
 
 export type Photo = { src: string; alt: string; position?: string };
 
 export const photos = {
-  hero: { src: walk, alt: "The bride and groom walking down a candlelit church aisle", position: "50% 40%" },
-  invitation: { src: walk, alt: "The bride and groom together", position: "40% 50%" },
+  hero: {
+    src: walk,
+    alt: "The bride and groom walking down a candlelit church aisle",
+    position: "50% 40%",
+  },
+  invitation: {
+    src: invitationBackground,
+    alt: "The bride and groom standing together in a candlelit church",
+    position: "50% 65%",
+  },
 
   bride: [
     { src: walk, alt: "The bride", position: "36% 55%" },

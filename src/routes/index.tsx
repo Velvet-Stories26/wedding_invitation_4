@@ -46,7 +46,7 @@ function Invitation() {
     <>
       <CurtainIntro onOpened={() => setOpened(true)} />
 
-      <main className="mx-auto min-h-screen w-full max-w-[480px] overflow-hidden bg-blush shadow-card">
+      <main className="mx-auto min-h-screen w-full max-w-[480px] bg-blush shadow-card">
         {/* HERO */}
         <section className="relative h-[100svh] min-h-[640px] overflow-hidden">
           <img
@@ -111,12 +111,8 @@ function Invitation() {
           </Reveal>
         </section>
 
-        {/* INVITATION CARD */}
-        <section className="bg-peach-paper px-5 pb-20 pt-4">
-          <Reveal>
-            <InvitationCard />
-          </Reveal>
-        </section>
+        {/* FULL-SCREEN INVITATION */}
+        <InvitationCard />
 
         {/* THE BRIDE */}
         <section className="bg-blush-paper py-20">
