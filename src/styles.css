@@ -110,7 +110,7 @@
     scroll-behavior: smooth;
   }
   body {
-    background: var(--gradient-plum);
+    background: var(--gradient-blush);
     background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-display);

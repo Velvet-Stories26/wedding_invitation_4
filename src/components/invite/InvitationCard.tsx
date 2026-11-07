@@ -9,7 +9,7 @@ export function InvitationCard() {
   return (
     <section
       aria-label="Wedding invitation"
-      className="relative left-1/2 isolate h-[100svh] w-screen -translate-x-1/2 overflow-hidden bg-ink"
+      className="relative isolate h-[100svh] w-full overflow-hidden bg-ink"
     >
       <img
         src={p.src}

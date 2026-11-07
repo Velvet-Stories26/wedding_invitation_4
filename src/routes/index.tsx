@@ -46,7 +46,7 @@ function Invitation() {
     <>
       <CurtainIntro onOpened={() => setOpened(true)} />
 
-      <main className="mx-auto min-h-screen w-full max-w-[480px] bg-blush shadow-card">
+      <main className="mx-auto min-h-screen w-full max-w-[480px]">
         {/* HERO */}
         <section className="relative h-[100svh] min-h-[640px] overflow-hidden">
           <img
