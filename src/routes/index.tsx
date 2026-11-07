@@ -122,7 +122,7 @@ function Invitation() {
             <p className="font-display mt-3 text-sm italic text-ink-soft">Daughter of {invite.brideParents}</p>
           </Reveal>
           <Reveal delay={150} className="mt-8 px-6">
-            <SwipeGallery items={photos.bride} aspect="aspect-[3/4]" />
+            <PhotoFrame photo={photos.bride} className="mx-auto aspect-[4/5] w-full max-w-[280px]" />
           </Reveal>
         </section>
 
@@ -134,7 +134,7 @@ function Invitation() {
             <p className="font-display mt-3 text-sm italic text-ivory/70">Son of {invite.groomParents}</p>
           </Reveal>
           <Reveal delay={150} className="mt-8 px-6">
-            <SwipeGallery items={photos.groom} aspect="aspect-[3/4]" tone="dark" />
+            <PhotoFrame photo={photos.groom} className="mx-auto aspect-[4/5] w-full max-w-[280px]" tone="dark" />
           </Reveal>
         </section>
 

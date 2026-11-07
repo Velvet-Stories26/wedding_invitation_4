@@ -5,6 +5,8 @@ import rings from "@/assets/moment-rings.jpg";
 import walk from "@/assets/moment-walk.jpg";
 import stage from "@/assets/stage.jpg";
 import invitationBackground from "@/assets/invitation-bg.png";
+import bridePortrait from "@/assets/bride.jpg";
+import groomPortrait from "@/assets/groom.jpg";
 
 export type Photo = { src: string; alt: string; position?: string };
 
@@ -20,18 +22,8 @@ export const photos = {
     position: "50% 65%",
   },
 
-  bride: [
-    { src: walk, alt: "The bride", position: "36% 55%" },
-    { src: rings, alt: "The bride's hands and bouquet", position: "20% 60%" },
-    { src: walk, alt: "The bride's veil", position: "38% 85%" },
-    { src: rings, alt: "The bride's lace gown", position: "5% 30%" },
-  ],
-  groom: [
-    { src: walk, alt: "The groom", position: "64% 45%" },
-    { src: rings, alt: "The groom placing the ring", position: "85% 50%" },
-    { src: walk, alt: "The groom at the altar", position: "62% 20%" },
-    { src: stage, alt: "Waiting for his bride", position: "50% 50%" },
-  ],
+  bride: { src: bridePortrait, alt: "The bride", position: "50% 40%" },
+  groom: { src: groomPortrait, alt: "The groom", position: "50% 35%" },
   filmstrip: [
     { src: rings, alt: "Rings", position: "50% 45%" },
     { src: walk, alt: "Walking together", position: "50% 50%" },
