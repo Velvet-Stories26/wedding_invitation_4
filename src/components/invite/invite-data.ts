@@ -17,11 +17,6 @@ export const invite = {
     name: "The Church",
     mapsUrl: "https://maps.app.goo.gl/KSmK5zasWSW7gxdX9?g_st=aw",
   },
-  schedule: [
-    { time: "December 20, 2026", title: "Engagement" },
-    { time: "December 22, 2026", title: "Marriage" },
-  ],
-  dressCode: { title: "Ivory, Blush & Burgundy", note: "Formal attire" },
   festivities: [
     {
       name: "Engagement",

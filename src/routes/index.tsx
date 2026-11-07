@@ -271,24 +271,6 @@ function Invitation() {
 
         <FloralDivider flip />
 
-        {/* SCHEDULE */}
-        <section className="bg-blush-paper px-8 py-20">
-          <Reveal>
-            <SectionHeading eyebrow="The celebration" title="Order of the day" />
-          </Reveal>
-          <ol className="relative mx-auto mt-10 max-w-[280px] border-l border-gold/60 pl-8">
-            {invite.schedule.map((item, i) => (
-              <li key={item.title} className="relative pb-7 last:pb-0">
-                <Reveal delay={i * 120}>
-                  <span className="absolute -left-[37px] top-1.5 h-2.5 w-2.5 rotate-45 border border-gold bg-blush" />
-                  <p className="label-caps text-[0.5rem] text-wine">{item.time}</p>
-                  <p className="font-display mt-1 text-xl text-ink">{item.title}</p>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
-        </section>
-
         {/* VENUE */}
         <section className="bg-blush-paper px-6 pb-20">
           <Reveal>
@@ -354,38 +336,25 @@ function Invitation() {
           </div>
         </section>
 
-        {/* DRESS CODE */}
-        <section className="bg-blush-paper px-8 pb-20 pt-4 text-center">
-          <Reveal>
-            <p className="label-caps text-[0.5rem] text-wine">Dress code</p>
-            <p className="font-display mt-3 text-xl italic text-ink">{invite.dressCode.title}</p>
-            <div className="mt-5 flex justify-center gap-3" aria-hidden>
-              {["bg-ivory", "bg-blush-deep", "bg-gold-soft", "bg-wine", "bg-wine-deep"].map((c) => (
-                <span
-                  key={c}
-                  className={`${c} h-6 w-6 rounded-full border border-gold/50 shadow-sm`}
-                />
-              ))}
-            </div>
-          </Reveal>
-        </section>
-
-        <FloralDivider flip />
-
         {/* CLOSING */}
-        <section className="bg-plum-night px-6 pb-24 pt-20 text-center">
+        <section className="relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden px-6 py-20 text-center">
+          <img
+            src={photos.invitation.src}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 -z-20 h-full w-full object-cover"
+            style={{ objectPosition: photos.invitation.position }}
+          />
+          <div className="absolute inset-0 -z-10 bg-plum-deep/80" />
           <Reveal>
-            <PhotoFrame
-              photo={photos.closing}
-              tone="dark"
-              className="mx-auto aspect-[3/4] w-[82%]"
-            />
-          </Reveal>
-          <Reveal delay={150}>
-            <h2 className="mt-10">
-              <span className="names-caps glow-text block text-5xl text-ivory">{invite.bride}</span>
+            <h2>
+              <span className="names-caps glow-text block text-4xl text-ivory sm:text-5xl">
+                {invite.bride}
+              </span>
               <Amp className="block text-4xl" />
-              <span className="names-caps glow-text block text-5xl text-ivory">{invite.groom}</span>
+              <span className="names-caps glow-text block text-4xl text-ivory sm:text-5xl">
+                {invite.groom}
+              </span>
             </h2>
             <Flourish className="mx-auto mt-6 h-3 w-16 text-gold-soft" />
           </Reveal>
