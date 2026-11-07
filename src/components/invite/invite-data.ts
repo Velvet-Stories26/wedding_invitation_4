@@ -14,22 +14,26 @@ export const invite = {
   dateShort: "22 · 12 · 2026",
   dateDisplay: "Dec 22, 2026",
   church: {
-    name: "The Church",
+    name: "St. John Of The Cross Church Siluvaipuram",
     mapsUrl: "https://maps.app.goo.gl/KSmK5zasWSW7gxdX9?g_st=aw",
   },
+  schedule: [
+    { time: "December 20, 2026", title: "Engagement" },
+    { time: "December 22, 2026", title: "Marriage" },
+  ],
   festivities: [
     {
       name: "Engagement",
-      photo: "betrothal",
+      photo: "engagement",
       when: "Sunday, December 20, 2026",
-      where: "Engagement Hall",
+      where: "SM Convention Center Pozhiyoor Kollecode",
       mapsUrl: "https://maps.app.goo.gl/AQ9eCAJ66FEd8Ug37?g_st=aw",
     },
     {
       name: "Marriage",
-      photo: "reception",
+      photo: "marriage",
       when: "Tuesday, December 22, 2026",
-      where: "The Church",
+      where: "St. John Of The Cross Church Siluvaipuram",
       mapsUrl: "https://maps.app.goo.gl/KSmK5zasWSW7gxdX9?g_st=aw",
     },
   ],

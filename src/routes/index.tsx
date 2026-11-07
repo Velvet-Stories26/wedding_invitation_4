@@ -146,11 +146,11 @@ function Invitation() {
         </section>
 
         {/* THE GROOM */}
-        <section className="bg-wine-velvet py-20">
+        <section className="bg-blush-paper py-20">
           <Reveal className="px-8 text-center">
-            <p className="label-caps text-[0.5rem] text-gold-soft">The groom</p>
-            <h2 className="names-caps glow-text mt-4 text-5xl text-ivory">{invite.groom}</h2>
-            <p className="font-display mt-3 text-sm italic text-ivory/70">
+            <p className="label-caps text-[0.5rem] text-wine">The groom</p>
+            <h2 className="names-caps mt-4 text-5xl text-ink">{invite.groom}</h2>
+            <p className="font-display mt-3 text-sm italic text-ink-soft">
               Son of {invite.groomParents}
             </p>
           </Reveal>
@@ -158,7 +158,6 @@ function Invitation() {
             <PhotoFrame
               photo={photos.groom}
               className="mx-auto aspect-[4/5] w-full max-w-[280px]"
-              tone="dark"
             />
           </Reveal>
         </section>
@@ -271,6 +270,24 @@ function Invitation() {
 
         <FloralDivider flip />
 
+        {/* SCHEDULE */}
+        <section className="bg-blush-paper px-8 py-20">
+          <Reveal>
+            <SectionHeading eyebrow="The celebration" title="Order of the day" />
+          </Reveal>
+          <ol className="relative mx-auto mt-10 max-w-[280px] border-l border-gold/60 pl-8">
+            {invite.schedule.map((item, i) => (
+              <li key={item.title} className="relative pb-7 last:pb-0">
+                <Reveal delay={i * 120}>
+                  <span className="absolute -left-[37px] top-1.5 h-2.5 w-2.5 rotate-45 border border-gold bg-blush" />
+                  <p className="label-caps text-[0.5rem] text-wine">{item.time}</p>
+                  <p className="font-display mt-1 text-xl text-ink">{item.title}</p>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+        </section>
+
         {/* VENUE */}
         <section className="bg-blush-paper px-6 pb-20">
           <Reveal>
@@ -278,11 +295,11 @@ function Invitation() {
               <PhotoFrame
                 photo={photos.venue}
                 tone="dark"
-                className="aspect-[4/5] w-full border-0 p-0"
+                className="aspect-[16/10] w-full border-0 p-0"
               />
               <div className="px-6 pb-10 pt-8">
                 <p className="label-caps text-[0.5rem] text-gold-soft">The ceremony</p>
-                <h3 className="names-caps glow-text mt-4 text-3xl leading-tight text-ivory">
+                <h3 className="names-caps glow-text mt-4 text-2xl leading-tight text-ivory">
                   {invite.church.name}
                 </h3>
                 <a

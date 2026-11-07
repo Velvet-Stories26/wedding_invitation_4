@@ -7,6 +7,8 @@ import stage from "@/assets/stage.jpg";
 import invitationBackground from "@/assets/invitation-bg.png";
 import bridePortrait from "@/assets/bride.jpg";
 import groomPortrait from "@/assets/groom.jpg";
+import engagementVenue from "@/assets/engagement.png";
+import churchVenue from "@/assets/church.png";
 
 export type Photo = { src: string; alt: string; position?: string };
 
@@ -48,11 +50,22 @@ export const photos = {
   family: { src: stage, alt: "Both families together", position: "50% 60%" },
   brideFamily: { src: rings, alt: "The bride's family", position: "30% 50%" },
   groomFamily: { src: rings, alt: "The groom's family", position: "75% 50%" },
-  venue: { src: walk, alt: "Inside the church", position: "50% 25%" },
+  venue: {
+    src: churchVenue,
+    alt: "St. John Of The Cross Church Siluvaipuram",
+    position: "50% 50%",
+  },
   events: {
-    betrothal: { src: rings, alt: "Betrothal ceremony", position: "50% 45%" },
-    rehearsal: { src: stage, alt: "Rehearsal dinner", position: "50% 35%" },
-    reception: { src: stage, alt: "Wedding reception", position: "50% 70%" },
+    engagement: {
+      src: engagementVenue,
+      alt: "SM Convention Center Pozhiyoor Kollecode",
+      position: "50% 50%",
+    },
+    marriage: {
+      src: churchVenue,
+      alt: "St. John Of The Cross Church Siluvaipuram",
+      position: "50% 50%",
+    },
   },
   closing: { src: walk, alt: "The bride and groom", position: "50% 45%" },
 } satisfies Record<string, Photo | Photo[] | Record<string, Photo>>;
