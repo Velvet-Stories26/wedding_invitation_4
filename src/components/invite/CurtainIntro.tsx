@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 type Phase = "closed" | "opening" | "gone";
 
-export function CurtainIntro({ onOpened }: { onOpened: () => void }) {
+export function CurtainIntro({ onOpen, onOpened }: { onOpen: () => void; onOpened: () => void }) {
   const [phase, setPhase] = useState<Phase>("closed");
 
   useEffect(() => {
@@ -17,6 +17,7 @@ export function CurtainIntro({ onOpened }: { onOpened: () => void }) {
 
   const open = () => {
     if (phase !== "closed") return;
+    onOpen();
     setPhase("opening");
     window.setTimeout(() => {
       setPhase("gone");
@@ -36,7 +37,8 @@ export function CurtainIntro({ onOpened }: { onOpened: () => void }) {
     <div
       className={cn(
         "fixed inset-0 z-50 flex justify-center bg-wine-deep transition-opacity duration-1000",
-        phase === "opening" && "animate-out fade-out fill-mode-forwards delay-[3200ms] duration-1000",
+        phase === "opening" &&
+          "animate-out fade-out fill-mode-forwards delay-[3200ms] duration-1000",
       )}
     >
       <button
@@ -59,11 +61,17 @@ export function CurtainIntro({ onOpened }: { onOpened: () => void }) {
 
         {/* Curtains */}
         <div
-          className={cn("curtain-half absolute inset-y-0 left-0 w-1/2", phase === "opening" && "-translate-x-full")}
+          className={cn(
+            "curtain-half absolute inset-y-0 left-0 w-1/2",
+            phase === "opening" && "-translate-x-full",
+          )}
           style={halfStyle("left")}
         />
         <div
-          className={cn("curtain-half absolute inset-y-0 right-0 w-1/2", phase === "opening" && "translate-x-full")}
+          className={cn(
+            "curtain-half absolute inset-y-0 right-0 w-1/2",
+            phase === "opening" && "translate-x-full",
+          )}
           style={halfStyle("right")}
         />
 
@@ -80,10 +88,18 @@ export function CurtainIntro({ onOpened }: { onOpened: () => void }) {
             <span className="h-3 w-3 rounded-full bg-gold-soft shadow-glow" />
           </span>
           <div className="animate-breathe text-center">
-            <svg width="48" height="12" viewBox="0 0 48 12" className="mx-auto mb-2 fill-gold-soft" aria-hidden>
+            <svg
+              width="48"
+              height="12"
+              viewBox="0 0 48 12"
+              className="mx-auto mb-2 fill-gold-soft"
+              aria-hidden
+            >
               <path d="M24 0 L26 5 L24 12 L22 5 Z M0 6 Q12 2 21 6 Q12 10 0 6 Z M48 6 Q36 2 27 6 Q36 10 48 6 Z" />
             </svg>
-            <p className="font-display glow-text text-2xl italic tracking-wide text-ivory">tap to open</p>
+            <p className="font-display glow-text text-2xl italic tracking-wide text-ivory">
+              tap to open
+            </p>
           </div>
         </div>
       </button>

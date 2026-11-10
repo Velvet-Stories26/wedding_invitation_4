@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { Music2, Pause } from "lucide-react";
 import frame from "@/assets/floral-frame.webp";
+import backgroundMusic from "@/assets/music.mp3";
 import { CurtainIntro } from "@/components/invite/CurtainIntro";
 import { ScratchReveal } from "@/components/invite/ScratchReveal";
 import { Countdown } from "@/components/invite/Countdown";
@@ -49,10 +51,64 @@ function Amp({ className }: { className?: string }) {
 
 function Invitation() {
   const [opened, setOpened] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [musicError, setMusicError] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const playMusic = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    setMusicError(false);
+    void audio.play().catch(() => {
+      setIsMusicPlaying(false);
+      setMusicError(true);
+    });
+  };
+
+  const toggleMusic = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (audio.paused) {
+      playMusic();
+    } else {
+      audio.pause();
+    }
+  };
 
   return (
     <>
-      <CurtainIntro onOpened={() => setOpened(true)} />
+      <audio
+        ref={audioRef}
+        src={backgroundMusic}
+        loop
+        preload="none"
+        onPlay={() => setIsMusicPlaying(true)}
+        onPause={() => setIsMusicPlaying(false)}
+      />
+      <CurtainIntro onOpen={playMusic} onOpened={() => setOpened(true)} />
+      {opened && (
+        <div className="pointer-events-none fixed inset-x-0 top-4 z-[60] mx-auto flex w-full max-w-[480px] flex-col items-end px-4">
+          <button
+            type="button"
+            onClick={toggleMusic}
+            aria-label={isMusicPlaying ? "Pause background music" : "Play background music"}
+            aria-pressed={isMusicPlaying}
+            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-gold/70 bg-wine-deep/85 text-gold-soft shadow-lg backdrop-blur transition-colors hover:bg-wine"
+          >
+            {isMusicPlaying ? <Pause size={20} aria-hidden /> : <Music2 size={20} aria-hidden />}
+          </button>
+          {musicError && (
+            <p
+              role="alert"
+              className="pointer-events-auto mt-2 max-w-56 rounded bg-wine-deep/90 px-3 py-2 text-right text-xs text-ivory"
+            >
+              Unable to play the background music. Please try again.
+            </p>
+          )}
+        </div>
+      )}
 
       <main className="mx-auto min-h-screen w-full max-w-[480px]">
         {/* HERO */}
