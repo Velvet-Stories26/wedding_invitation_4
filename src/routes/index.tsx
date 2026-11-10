@@ -113,71 +113,98 @@ function Invitation() {
       <main className="mx-auto min-h-screen w-full max-w-[480px]">
         {/* HERO */}
         <section className="relative h-[100svh] min-h-[640px] overflow-hidden">
-          <img
-            key={`hero-${opened}`}
-            src={photos.hero.src}
-            alt={photos.hero.alt}
-            className="animate-slow-zoom absolute inset-0 h-full w-full object-cover"
-            style={{ objectPosition: photos.hero.position }}
-          />
-          <div className="bg-hero-veil absolute inset-0" />
-          <div className="pointer-events-none absolute inset-4 border border-gold/45" />
-          <div className="pointer-events-none absolute inset-[22px] border border-gold/20" />
+  <video
+    key={`hero-${opened}`}
+    src={photos.hero.src}
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="auto"
+    className="animate-slow-zoom absolute inset-0 h-full w-full object-cover"
+    style={{ objectPosition: photos.hero.position }}
+  />
 
-          <div
-            key={String(opened)}
-            className="relative z-10 flex h-full flex-col items-center justify-between px-10 pb-24 pt-14 text-center"
-          >
-            <Reveal>
-              <Cross className="mx-auto h-7 w-5 text-gold-soft" />
-              <p className="label-caps mt-4 text-[0.5rem] text-gold-soft">
-                With the blessing of God
-              </p>
-            </Reveal>
+  <div className="bg-hero-veil absolute inset-0" />
+  <div className="pointer-events-none absolute inset-4 border border-gold/45" />
+  <div className="pointer-events-none absolute inset-[22px] border border-gold/20" />
 
-            <div>
-              <Reveal delay={200}>
-                <p className="label-caps text-[0.5rem] text-ivory/80">The wedding of</p>
-                <Flourish className="mx-auto mt-3 h-2.5 w-12 text-gold-soft" />
-              </Reveal>
-              <Reveal delay={400}>
-                <h1 className="mt-5">
-                  <span className="names-caps glow-text block text-[2.6rem] text-ivory sm:text-[3rem]">
-                    {invite.bride}
-                  </span>
-                  <Amp className="my-1 block text-4xl" />
-                  <span className="names-caps glow-text block text-[2.6rem] text-ivory sm:text-[3rem]">
-                    {invite.groom}
-                  </span>
-                </h1>
-              </Reveal>
-              <Reveal delay={650}>
-                <div className="mx-auto mt-7 flex items-center justify-center gap-4 text-gold-soft">
-                  <span className="h-px w-10 bg-current opacity-60" />
-                  <p className="label-caps text-[0.6rem] text-ivory">{invite.dateShort}</p>
-                  <span className="h-px w-10 bg-current opacity-60" />
-                </div>
-              </Reveal>
-            </div>
-          </div>
+  <div
+    key={String(opened)}
+    className="relative z-10 flex h-full flex-col items-center justify-between px-10 pb-24 pt-14 text-center"
+  >
+    <Reveal>
+      <Cross className="mx-auto h-7 w-5 text-gold-soft" />
+      <p className="label-caps mt-4 text-[0.5rem] text-gold-soft">
+        With the blessing of God
+      </p>
+    </Reveal>
 
-          <a
-            href="#love"
-            aria-label="Scroll down"
-            className="animate-drift absolute bottom-9 left-1/2 z-10 -translate-x-1/2 text-gold-soft"
-          >
-            <span className="block h-7 w-px bg-current opacity-70" />
-          </a>
-        </section>
+    <div>
+      <Reveal delay={200}>
+        <p className="label-caps text-[0.5rem] text-ivory/80">
+          The wedding of
+        </p>
+        <Flourish className="mx-auto mt-3 h-2.5 w-12 text-gold-soft" />
+      </Reveal>
 
-        {/* VERSE */}
-        <section id="love" className="bg-blush-paper px-8 py-20 text-center">
+      <Reveal delay={400}>
+        <h1 className="mt-5">
+          <span className="names-caps glow-text block text-[2.6rem] text-ivory sm:text-[3rem]">
+            {invite.bride}
+          </span>
+          <Amp className="my-1 block text-4xl" />
+          <span className="names-caps glow-text block text-[2.6rem] text-ivory sm:text-[3rem]">
+            {invite.groom}
+          </span>
+        </h1>
+      </Reveal>
+
+      <Reveal delay={650}>
+        <div className="mx-auto mt-7 flex items-center justify-center gap-4 text-gold-soft">
+          <span className="h-px w-10 bg-current opacity-60" />
+          <p className="label-caps text-[0.6rem] text-ivory">
+            {invite.dateShort}
+          </p>
+          <span className="h-px w-10 bg-current opacity-60" />
+        </div>
+      </Reveal>
+    </div>
+  </div>
+
+  <a
+    href="#love"
+    aria-label="Scroll down"
+    className="animate-drift absolute bottom-9 left-1/2 z-10 -translate-x-1/2 text-gold-soft"
+  >
+    <span className="block h-7 w-px bg-current opacity-70" />
+  </a>
+</section>
+ {/* SCRATCH DATE */}
+        <section className="bg-peach-paper px-6 pb-20 pt-10 text-center">
           <Reveal>
-            <Cross className="mx-auto h-6 w-4 text-gold" />
-            <p className="font-display mx-auto mt-6 max-w-[320px] text-xl font-light italic leading-relaxed text-ink">
-              “{invite.verse}”
-            </p>
-            <p className="label-caps mt-4 text-[0.5rem] text-wine">{invite.verseRef}</p>
+            <SectionHeading eyebrow="Save the date" title="Our forever begins" />
+          </Reveal>
+          <Reveal delay={150} className="relative mx-auto mt-10 w-full max-w-[380px]">
+            <div className="relative aspect-[900/695]">
+              <ScratchReveal className="absolute left-[19%] right-[19%] top-[24%] bottom-[19%] rounded-md bg-ivory">
+                <div className="flex h-full flex-col items-center justify-center px-2">
+                  <p className="label-caps text-[0.45rem] text-wine">Marriage</p>
+                  <p className="font-script mt-1 text-4xl leading-tight text-wine">
+                    {invite.dateDisplay}
+                  </p>
+                </div>
+              </ScratchReveal>
+              <img
+                src={frame}
+                alt=""
+                aria-hidden
+                width={900}
+                height={695}
+                loading="lazy"
+                className="pointer-events-none absolute inset-0 h-full w-full select-none drop-shadow-xl"
+              />
+            </div>
           </Reveal>
         </section>
 
@@ -219,40 +246,23 @@ function Invitation() {
         </section>
 
         {/* FILM STRIP */}
-        <section className="bg-blush-paper pb-16 pt-20">
+        {/* <section className="bg-blush-paper pb-16 pt-20">
           <Reveal className="px-8">
             <SectionHeading eyebrow="Our story" title="In frames" />
           </Reveal>
           <Reveal delay={150} className="mt-10">
             <FilmStrip items={photos.filmstrip} />
           </Reveal>
-        </section>
+        </section> */}
 
-        {/* SCRATCH DATE */}
-        <section className="bg-peach-paper px-6 pb-20 pt-10 text-center">
+       {/* VERSE */}
+        <section id="love" className="bg-blush-paper px-8 py-20 text-center">
           <Reveal>
-            <SectionHeading eyebrow="Save the date" title="Our forever begins" />
-          </Reveal>
-          <Reveal delay={150} className="relative mx-auto mt-10 w-full max-w-[380px]">
-            <div className="relative aspect-[900/695]">
-              <ScratchReveal className="absolute left-[19%] right-[19%] top-[24%] bottom-[19%] rounded-md bg-ivory">
-                <div className="flex h-full flex-col items-center justify-center px-2">
-                  <p className="label-caps text-[0.45rem] text-wine">Marriage</p>
-                  <p className="font-script mt-1 text-4xl leading-tight text-wine">
-                    {invite.dateDisplay}
-                  </p>
-                </div>
-              </ScratchReveal>
-              <img
-                src={frame}
-                alt=""
-                aria-hidden
-                width={900}
-                height={695}
-                loading="lazy"
-                className="pointer-events-none absolute inset-0 h-full w-full select-none drop-shadow-xl"
-              />
-            </div>
+            <Cross className="mx-auto h-6 w-4 text-gold" />
+            <p className="font-display mx-auto mt-6 max-w-[320px] text-xl font-light italic leading-relaxed text-ink">
+              “{invite.verse}”
+            </p>
+            <p className="label-caps mt-4 text-[0.5rem] text-wine">{invite.verseRef}</p>
           </Reveal>
         </section>
 
@@ -263,16 +273,6 @@ function Invitation() {
           </Reveal>
           <Reveal delay={150} className="mt-8">
             <SwipeGallery items={photos.together} variant="peek" tone="dark" />
-          </Reveal>
-        </section>
-
-        {/* COUNTDOWN */}
-        <section className="bg-wine-velvet px-6 py-16">
-          <Reveal>
-            <p className="label-caps text-center text-[0.5rem] text-gold-soft">
-              Until we say “I do”
-            </p>
-            <Countdown dateISO={invite.dateISO} />
           </Reveal>
         </section>
 
@@ -292,10 +292,21 @@ function Invitation() {
           </Reveal>
         </section>
 
-        <FloralDivider />
+         {/* COUNTDOWN */}
+        <section className="bg-wine-velvet px-6 py-16">
+          <Reveal>
+            <p className="label-caps text-center text-[0.5rem] text-gold-soft">
+              Until we say “I do”
+            </p>
+            <Countdown dateISO={invite.dateISO} />
+          </Reveal>
+        </section>
+
+
+        {/* <FloralDivider /> */}
 
         {/* FAMILIES */}
-        <section className="bg-peach-paper px-6 py-20 text-center">
+        {/* <section className="bg-peach-paper px-6 py-20 text-center">
           <Reveal>
             <SectionHeading eyebrow="Our families" title="One blessing" />
           </Reveal>
@@ -322,9 +333,9 @@ function Invitation() {
               </Reveal>
             ))}
           </div>
-        </section>
+        </section> */}
 
-        <FloralDivider flip />
+        {/* <FloralDivider flip /> */}
 
         {/* SCHEDULE */}
         <section className="bg-blush-paper px-8 py-20">
@@ -345,7 +356,7 @@ function Invitation() {
         </section>
 
         {/* VENUE */}
-        <section className="bg-blush-paper px-6 pb-20">
+        {/* <section className="bg-blush-paper px-6 pb-20">
           <Reveal>
             <div className="bg-wine-velvet shadow-card relative mx-auto max-w-[380px] border border-gold/50 p-2 text-center">
               <PhotoFrame
@@ -370,7 +381,7 @@ function Invitation() {
               </div>
             </div>
           </Reveal>
-        </section>
+        </section> */}
 
         <FloralDivider />
 

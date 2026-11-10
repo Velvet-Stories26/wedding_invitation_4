@@ -9,12 +9,13 @@ import bridePortrait from "@/assets/bride.jpg";
 import groomPortrait from "@/assets/groom.jpg";
 import engagementVenue from "@/assets/engagement.png";
 import churchVenue from "@/assets/church.png";
+import WeddingAnimation from "@/assets/animation-vedio.mp4"
 
 export type Photo = { src: string; alt: string; position?: string };
 
 export const photos = {
   hero: {
-    src: walk,
+    src: WeddingAnimation,
     alt: "The bride and groom walking down a candlelit church aisle",
     position: "50% 40%",
   },
