@@ -411,10 +411,16 @@ function Invitation() {
           <div className="mt-12 space-y-12">
             {invite.festivities.map((f, i) => (
               <Reveal key={f.name} delay={100}>
-                <article className="bg-ivory-paper shadow-card relative border border-gold/40 p-2">
+                <a
+                  href={f.mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${f.name} location in Google Maps`}
+                  className="group bg-ivory-paper shadow-card relative block border border-gold/40 p-2 transition-shadow hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-wine"
+                >
                   <PhotoFrame
                     photo={photos.events[f.photo]}
-                    className="aspect-[16/10] w-full border-0 p-0 shadow-none"
+                    className="aspect-[16/10] w-full border-0 p-0 shadow-none transition-transform duration-300 group-hover:scale-[1.01]"
                   />
                   <span className="names-caps relative mx-auto -mt-6 flex h-12 w-12 items-center justify-center rounded-full border border-gold bg-ivory text-lg text-wine shadow-sm">
                     {ROMAN[i]}
@@ -423,17 +429,20 @@ function Invitation() {
                     <h3 className="names-caps text-[1.7rem] text-ink">{f.name}</h3>
                     <p className="label-caps mt-3 text-[0.625rem] text-wine">{f.when}</p>
                     <p className="font-display mt-2 italic text-ink-soft">{f.where}</p>
-                    <a
-                      href={f.mapsUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`View ${f.name === "Engagement" ? "engagement hall" : "church"} location on Google Maps`}
-                      className="label-caps mt-5 inline-block border-b border-gold pb-0.5 text-[0.625rem] text-ink-soft hover:text-wine"
-                    >
+                    <span className="label-caps mt-5 inline-flex min-h-11 items-center justify-center gap-2 border border-wine bg-wine px-5 py-3 text-[0.625rem] text-ivory shadow-sm transition-colors group-hover:border-gold group-hover:bg-wine-deep group-focus-visible:ring-2 group-focus-visible:ring-gold">
                       View location
-                    </a>
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        className="h-4 w-4 fill-none stroke-current"
+                        strokeWidth="1.8"
+                      >
+                        <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" />
+                        <circle cx="12" cy="9" r="2.2" />
+                      </svg>
+                    </span>
                   </div>
-                </article>
+                </a>
               </Reveal>
             ))}
           </div>
