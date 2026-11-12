@@ -53,8 +53,8 @@ export const photos = {
   ],
   mosaic: {
     large: { src: walk, alt: "Together at the altar", position: "50% 40%" },
-    topRight: { src: rings, alt: "The ring", position: "50% 40%" },
-    middleRight: { src: stage, alt: "The celebration", position: "50% 45%" },
+    topRight: { src: ringImage, alt: "The ring", position: "50% 40%" },
+    middleRight: { src: churchVenue, alt: "The celebration", position: "50% 45%" },
     wide: { src: rings, alt: "The bouquet", position: "50% 85%" },
   },
   family: { src: stage, alt: "Both families together", position: "50% 60%" },
