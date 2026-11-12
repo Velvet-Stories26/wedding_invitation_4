@@ -255,14 +255,22 @@ function Invitation() {
           </Reveal>
         </section> */}
 
-       {/* VERSE */}
-        <section id="love" className="bg-blush-paper px-8 py-20 text-center">
+        {/* VERSE */}
+        <section id="love" className="relative isolate overflow-hidden px-8 py-20 text-center">
+          <img
+            src={photos.verseBackground.src}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 -z-20 h-full w-full object-cover"
+            style={{ objectPosition: photos.verseBackground.position }}
+          />
+          <div className="absolute inset-0 -z-10 bg-plum-deep/55" />
           <Reveal>
-            <Cross className="mx-auto h-6 w-4 text-gold" />
-            <p className="font-display mx-auto mt-6 max-w-[320px] text-xl font-light italic leading-relaxed text-ink">
+            <Cross className="mx-auto h-6 w-4 text-gold-soft" />
+            <p className="font-display mx-auto mt-6 max-w-[320px] text-xl font-light italic leading-relaxed text-ivory">
               “{invite.verse}”
             </p>
-            <p className="label-caps mt-4 text-[0.5rem] text-wine">{invite.verseRef}</p>
+            <p className="label-caps mt-4 text-[0.5rem] text-gold-soft">{invite.verseRef}</p>
           </Reveal>
         </section>
 

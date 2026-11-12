@@ -5,11 +5,12 @@ import rings from "@/assets/moment-rings.jpg";
 import walk from "@/assets/moment-walk.jpg";
 import stage from "@/assets/stage.jpg";
 import invitationBackground from "@/assets/invitation-bg.png";
+import verseBackground from "@/assets/silk-burgundy.png";
 import bridePortrait from "@/assets/bride.jpg";
 import groomPortrait from "@/assets/groom.jpg";
 import engagementVenue from "@/assets/engagement.png";
 import churchVenue from "@/assets/church.png";
-import WeddingAnimation from "@/assets/animation-vedio.mp4"
+import WeddingAnimation from "@/assets/animation-vedio.mp4";
 
 export type Photo = { src: string; alt: string; position?: string };
 
@@ -23,6 +24,11 @@ export const photos = {
     src: invitationBackground,
     alt: "The bride and groom standing together in a candlelit church",
     position: "50% 65%",
+  },
+  verseBackground: {
+    src: verseBackground,
+    alt: "Deep burgundy silk",
+    position: "50% 50%",
   },
 
   bride: { src: bridePortrait, alt: "The bride", position: "50% 40%" },

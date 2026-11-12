@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
-import curtain from "@/assets/curtain.jpg";
-import stage from "@/assets/stage.jpg";
+import { useEffect, useRef, useState } from "react";
+import envelope from "@/assets/start-envelope.jpeg";
+import envelopeVideo from "@/assets/envelope.mp4";
 import { cn } from "@/lib/utils";
 
-type Phase = "closed" | "opening" | "gone";
+type Phase = "closed" | "playing" | "gone";
 
 export function CurtainIntro({ onOpen, onOpened }: { onOpen: () => void; onOpened: () => void }) {
   const [phase, setPhase] = useState<Phase>("closed");
+  const [videoError, setVideoError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = phase === "gone" ? "" : "hidden";
@@ -18,91 +20,73 @@ export function CurtainIntro({ onOpen, onOpened }: { onOpen: () => void; onOpene
   const open = () => {
     if (phase !== "closed") return;
     onOpen();
-    setPhase("opening");
-    window.setTimeout(() => {
-      setPhase("gone");
-      onOpened();
-    }, 4200);
+    setVideoError(false);
+    void videoRef.current?.play().then(
+      () => setPhase("playing"),
+      () => setVideoError(true),
+    );
+  };
+
+  const finish = () => {
+    setPhase("gone");
+    onOpened();
   };
 
   if (phase === "gone") return null;
 
-  const halfStyle = (side: "left" | "right") => ({
-    backgroundImage: `url(${curtain})`,
-    backgroundSize: "200% 100%",
-    backgroundPosition: side === "left" ? "left center" : "right center",
-  });
-
   return (
-    <div
-      className={cn(
-        "fixed inset-0 z-50 flex justify-center bg-wine-deep transition-opacity duration-1000",
-        phase === "opening" &&
-          "animate-out fade-out fill-mode-forwards delay-[3200ms] duration-1000",
-      )}
-    >
-      <button
-        type="button"
-        onClick={open}
-        aria-label="Tap to open the invitation"
-        className="relative h-full w-full max-w-[480px] cursor-pointer overflow-hidden"
-      >
-        {/* Stage behind the curtains */}
+    <div className="fixed inset-0 z-50 flex justify-center overflow-hidden bg-wine-deep">
+      <div className="relative h-full w-full max-w-[480px] overflow-hidden">
         <img
-          src={stage}
-          alt=""
-          width={768}
-          height={1344}
+          src={envelope}
+          alt="A wedding invitation sealed with a gold monogram"
           className={cn(
-            "absolute inset-0 h-full w-full object-cover brightness-50",
-            phase === "opening" && "animate-stage-in",
+            "absolute inset-0 h-full w-full object-cover transition-opacity duration-500",
+            phase === "playing" && "pointer-events-none opacity-0",
           )}
         />
-
-        {/* Curtains */}
-        <div
+        <video
+          ref={videoRef}
+          src={envelopeVideo}
+          muted
+          playsInline
+          preload="auto"
+          onEnded={finish}
+          onError={() => {
+            if (phase !== "gone") {
+              setPhase("closed");
+              setVideoError(true);
+            }
+          }}
           className={cn(
-            "curtain-half absolute inset-y-0 left-0 w-1/2",
-            phase === "opening" && "-translate-x-full",
+            "absolute inset-0 h-full w-full object-cover transition-opacity duration-500",
+            phase !== "playing" && "pointer-events-none opacity-0",
           )}
-          style={halfStyle("left")}
         />
-        <div
-          className={cn(
-            "curtain-half absolute inset-y-0 right-0 w-1/2",
-            phase === "opening" && "translate-x-full",
-          )}
-          style={halfStyle("right")}
-        />
-
-        {/* Tap prompt */}
-        <div
-          className={cn(
-            "absolute inset-0 flex flex-col items-center justify-center gap-6 transition-opacity duration-700",
-            phase === "opening" && "opacity-0",
-          )}
-        >
-          <span className="relative flex h-14 w-14 items-center justify-center">
-            <span className="animate-ripple absolute inset-0 rounded-full border border-gold-soft/70" />
-            <span className="animate-ripple absolute inset-0 rounded-full border border-gold-soft/50 [animation-delay:1.1s]" />
-            <span className="h-3 w-3 rounded-full bg-gold-soft shadow-glow" />
-          </span>
-          <div className="animate-breathe text-center">
-            <svg
-              width="48"
-              height="12"
-              viewBox="0 0 48 12"
-              className="mx-auto mb-2 fill-gold-soft"
-              aria-hidden
+        {phase === "closed" && (
+          <>
+            <button
+              type="button"
+              onClick={open}
+              aria-label="Open the wedding envelope"
+              className="absolute left-1/2 top-[41%] h-[11%] w-[25%] -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-gold-soft focus-visible:ring-offset-4 focus-visible:ring-offset-transparent"
             >
-              <path d="M24 0 L26 5 L24 12 L22 5 Z M0 6 Q12 2 21 6 Q12 10 0 6 Z M48 6 Q36 2 27 6 Q36 10 48 6 Z" />
-            </svg>
-            <p className="font-display glow-text text-2xl italic tracking-wide text-ivory">
-              tap to open
+              <span className="animate-ripple absolute inset-0 rounded-full border border-gold-soft/70" />
+            </button>
+            <p className="font-display absolute bottom-[12%] left-0 w-full px-6 text-center text-xl italic text-ivory drop-shadow-lg">
+              Tap the seal to open
             </p>
-          </div>
-        </div>
-      </button>
+            {videoError && (
+              <p
+                role="alert"
+                className="absolute bottom-5 left-1/2 w-[min(90%,400px)] -translate-x-1/2 rounded bg-wine-deep/90 px-4 py-2 text-center text-sm text-ivory"
+              >
+                The envelope video could not be played. Please try again.
+              </p>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 }
