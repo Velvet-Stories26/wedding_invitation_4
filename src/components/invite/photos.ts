@@ -4,7 +4,8 @@
 import rings from "@/assets/moment-rings.jpg";
 import walk from "@/assets/moment-walk.jpg";
 import stage from "@/assets/stage.jpg";
-import invitationBackground from "@/assets/invitation-bg.png";
+import invitationBackground from "@/assets/invitation.png";
+import closingBackground from "@/assets/invitation-bg.png";
 import verseBackground from "@/assets/silk-burgundy.png";
 import bridePortrait from "@/assets/bride.jpg";
 import groomPortrait from "@/assets/groom.jpg";
@@ -13,7 +14,6 @@ import churchVenue from "@/assets/church.png";
 import ringImage from "@/assets/ring.png";
 import ringImg from "@/assets/ringImg.jpeg";
 import WeddingAnimation from "@/assets/animation-vedio.mp4";
-
 
 export type Photo = { src: string; alt: string; position?: string };
 
@@ -25,8 +25,8 @@ export const photos = {
   },
   invitation: {
     src: invitationBackground,
-    alt: "The bride and groom standing together in a candlelit church",
-    position: "50% 65%",
+    alt: "A floral burgundy wedding invitation background with open space for wedding details",
+    position: "50% 50%",
   },
   verseBackground: {
     src: verseBackground,
@@ -48,7 +48,7 @@ export const photos = {
     { src: walk, alt: "The couple walking hand in hand", position: "50% 45%" },
     { src: ringImage, alt: "The couple exchanging wedding rings", position: "50% 45%" },
     { src: ringImg, alt: "Beneath the crystal chandelier", position: "50% 40%" },
-    { src: churchVenue , alt: "Candlelit aisle", position: "50% 90%" },
+    { src: churchVenue, alt: "Candlelit aisle", position: "50% 90%" },
     { src: rings, alt: "Roses and promises", position: "50% 80%" },
   ],
   mosaic: {
@@ -77,5 +77,9 @@ export const photos = {
       position: "50% 50%",
     },
   },
-  closing: { src: walk, alt: "The bride and groom", position: "50% 45%" },
+  closing: {
+    src: closingBackground,
+    alt: "Wedding invitation closing background",
+    position: "50% 50%",
+  },
 } satisfies Record<string, Photo | Photo[] | Record<string, Photo>>;

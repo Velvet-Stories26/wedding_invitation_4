@@ -9,7 +9,7 @@ export function InvitationCard() {
   return (
     <section
       aria-label="Wedding invitation"
-      className="relative isolate h-[100svh] w-full overflow-hidden bg-ink"
+      className="relative isolate mx-auto h-[100svh] min-h-[720px] w-full max-w-[480px] overflow-hidden bg-ivory"
     >
       <img
         src={p.src}
@@ -17,33 +17,53 @@ export function InvitationCard() {
         className="absolute inset-0 h-full w-full object-cover"
         style={{ objectPosition: p.position }}
       />
-      <div className="bg-invite-fade absolute inset-0" />
-      <div className="pointer-events-none absolute inset-3 border border-gold/60 md:inset-6" />
-      <div className="pointer-events-none absolute inset-5 border border-gold/25 md:inset-8" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-[58%] bg-gradient-to-l from-ivory/35 via-ivory/15 to-transparent" />
 
-      <Reveal className="absolute bottom-[5%] right-[3%] top-[5%] flex w-[min(62%,320px)] flex-col items-center justify-center px-3 text-center sm:px-5">
-        <Flourish className="h-2.5 w-10 text-gold" />
-        <p className="label-caps mt-2 text-[0.625rem] text-ink-soft">The wedding of</p>
-        <span className="mt-2 h-px w-10 bg-gold/60" />
-        <p className="names-caps mt-2 text-xl leading-tight text-ink sm:text-2xl">{invite.bride}</p>
-        <p className="font-display font-light italic -my-1 text-xl text-gold sm:text-2xl">&amp;</p>
-        <p className="names-caps text-xl leading-tight text-ink sm:text-2xl">{invite.groom}</p>
-        <p className="label-caps mt-2 text-[0.625rem] leading-relaxed text-ink-soft">
+      <Reveal className="absolute bottom-[6%] left-[43%] right-[7%] top-[7%] flex flex-col items-center justify-center px-1 text-center">
+        <Flourish className="h-3 w-12 text-wine" />
+        <p className="label-caps mt-3 text-[0.6rem] tracking-[0.16em] text-wine sm:text-[0.65rem]">
+          The wedding of
+        </p>
+        <span className="mt-3 h-px w-12 bg-gold/80" />
+
+        <h2 className="names-caps mt-5 text-[1.05rem] leading-tight text-wine sm:text-xl">
+          {invite.bride}
+        </h2>
+        <div className="mt-3 space-y-2 font-display text-[0.7rem] italic leading-snug text-ink-soft sm:text-xs">
+          <p>
+            Daughter of
+            <br />
+            {invite.brideParents}
+          </p>
+          </div>
+        <p className="font-script my-0.5 text-4xl leading-none text-gold sm:text-5xl">&amp;</p>
+        <h2 className="names-caps text-[1.05rem] leading-tight text-wine sm:text-xl">
+          {invite.groom}
+        </h2>
+
+        <div className="mt-3 space-y-2 font-display text-[0.7rem] italic leading-snug text-ink-soft sm:text-xs">
+          <p>
+            Son of
+            <br />
+            {invite.groomParents}
+          </p>
+        </div>
+
+        <p className="label-caps mt-4 text-[0.6rem] leading-relaxed text-wine sm:text-[0.65rem]">
           Together with their families
         </p>
-        <p className="font-display mt-1 text-xs italic leading-snug text-ink-soft sm:text-sm">
-          {invite.brideParents}
-          <br />
-          &amp; {invite.groomParents}
-        </p>
-        <span className="mt-2 h-px w-14 bg-gold/60" />
-        <p className="label-caps mt-2 text-[0.625rem] text-ink">Marriage</p>
-        <p className="font-display mt-1 text-xs italic text-ink-soft sm:text-sm">
+        <span className="mt-3 h-px w-14 bg-gold/80" />
+        <p className="label-caps mt-3 text-[0.6rem] text-wine sm:text-[0.65rem]">
           {invite.dateLong}
         </p>
-        <span className="mt-2 h-px w-14 bg-gold/60" />
-        <p className="label-caps mt-2 text-[0.625rem] text-ink">{invite.church.name}</p>
-        <Flourish className="mt-2 h-2.5 w-10 rotate-180 text-gold" />
+        <p className="font-display mt-1 text-sm italic text-ink-soft sm:text-base">
+          {invite.schedule[0].time} onwards
+        </p>
+        <span className="mt-3 h-px w-14 bg-gold/80" />
+        <p className="label-caps mt-3 text-[0.6rem] leading-relaxed text-wine sm:text-[0.65rem]">
+          {invite.church.name}
+        </p>
+        <Flourish className="mt-3 h-3 w-12 rotate-180 text-wine" />
       </Reveal>
     </section>
   );
