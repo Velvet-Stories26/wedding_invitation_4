@@ -138,7 +138,7 @@
 @utility label-caps {
   font-family: var(--font-caps);
   font-size: 0.625rem;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 @utility bg-blush-paper {
@@ -199,6 +199,44 @@
 @keyframes slow-zoom {
   from { transform: scale(1.12); }
   to { transform: scale(1); }
+}
+@keyframes celebration-burst {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.6) rotate(0deg); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--spark-x)), calc(-50% + var(--spark-y))) scale(1.15) rotate(160deg); }
+}
+.celebration-burst {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.celebration-burst span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--gold);
+  animation: celebration-burst 1.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.celebration-burst span:nth-child(1) { --spark-x: -80px; --spark-y: -50px; }
+.celebration-burst span:nth-child(2) { --spark-x: -48px; --spark-y: -70px; animation-delay: 40ms; }
+.celebration-burst span:nth-child(3) { --spark-x: -16px; --spark-y: -82px; animation-delay: 80ms; }
+.celebration-burst span:nth-child(4) { --spark-x: 20px; --spark-y: -78px; animation-delay: 20ms; }
+.celebration-burst span:nth-child(5) { --spark-x: 56px; --spark-y: -63px; animation-delay: 90ms; }
+.celebration-burst span:nth-child(6) { --spark-x: 82px; --spark-y: -34px; animation-delay: 50ms; }
+.celebration-burst span:nth-child(7) { --spark-x: 78px; --spark-y: 8px; animation-delay: 110ms; }
+.celebration-burst span:nth-child(8) { --spark-x: 58px; --spark-y: 50px; animation-delay: 30ms; }
+.celebration-burst span:nth-child(9) { --spark-x: 25px; --spark-y: 76px; animation-delay: 100ms; }
+.celebration-burst span:nth-child(10) { --spark-x: -18px; --spark-y: 78px; animation-delay: 70ms; }
+.celebration-burst span:nth-child(11) { --spark-x: -56px; --spark-y: 59px; animation-delay: 120ms; }
+.celebration-burst span:nth-child(12) { --spark-x: -78px; --spark-y: 22px; animation-delay: 60ms; }
+.celebration-burst span:nth-child(13) { --spark-x: -38px; --spark-y: 3px; width: 5px; height: 5px; border-radius: 50%; background: var(--ivory); }
+.celebration-burst span:nth-child(14) { --spark-x: 39px; --spark-y: 10px; width: 5px; height: 5px; border-radius: 50%; background: var(--ivory); }
+@media (prefers-reduced-motion: reduce) {
+  .celebration-burst { display: none; }
 }
 @utility animate-slow-zoom {
   animation: slow-zoom 12s cubic-bezier(0.22, 1, 0.36, 1) forwards;

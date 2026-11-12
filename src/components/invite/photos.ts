@@ -10,7 +10,10 @@ import bridePortrait from "@/assets/bride.jpg";
 import groomPortrait from "@/assets/groom.jpg";
 import engagementVenue from "@/assets/engagement.png";
 import churchVenue from "@/assets/church.png";
+import ringImage from "@/assets/ring.png";
+import ringImg from "@/assets/ringImg.jpeg";
 import WeddingAnimation from "@/assets/animation-vedio.mp4";
+
 
 export type Photo = { src: string; alt: string; position?: string };
 
@@ -43,9 +46,9 @@ export const photos = {
   ],
   together: [
     { src: walk, alt: "The couple walking hand in hand", position: "50% 45%" },
-    { src: rings, alt: "The couple exchanging wedding rings", position: "50% 45%" },
-    { src: stage, alt: "Beneath the crystal chandelier", position: "50% 40%" },
-    { src: walk, alt: "Candlelit aisle", position: "50% 90%" },
+    { src: ringImage, alt: "The couple exchanging wedding rings", position: "50% 45%" },
+    { src: ringImg, alt: "Beneath the crystal chandelier", position: "50% 40%" },
+    { src: churchVenue , alt: "Candlelit aisle", position: "50% 90%" },
     { src: rings, alt: "Roses and promises", position: "50% 80%" },
   ],
   mosaic: {

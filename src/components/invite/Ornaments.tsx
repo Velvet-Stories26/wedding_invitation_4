@@ -38,10 +38,17 @@ export function SectionHeading({
 }) {
   return (
     <div className="text-center">
-      <p className={cn("label-caps text-[0.55rem]", tone === "light" ? "text-wine" : "text-gold-soft")}>{eyebrow}</p>
+      <p
+        className={cn(
+          "label-caps text-[0.625rem]",
+          tone === "light" ? "text-wine" : "text-gold-soft",
+        )}
+      >
+        {eyebrow}
+      </p>
       <h2
         className={cn(
-          "font-display mt-3 text-[2.4rem] font-light italic leading-[1.1]",
+          "font-display mt-3 text-3xl font-light italic leading-tight",
           tone === "light" ? "text-ink" : "text-ivory glow-text",
         )}
       >

@@ -18,9 +18,32 @@ export const invite = {
     mapsUrl: "https://maps.app.goo.gl/KSmK5zasWSW7gxdX9?g_st=aw",
   },
   schedule: [
-    { time: "December 20, 2026", title: "Engagement" },
-    { time: "December 22, 2026", title: "Marriage" },
-  ],
+  {
+    time: "11:00 AM",
+    title: "Wedding Procession",
+    description: "The bride and groom arrive, followed by the exchange of bouquets and a warm welcome."
+  },
+  {
+    time: "11:05 AM",
+    title: "Opening Ceremony",
+    description: "A beautiful beginning with an opening prayer and blessings for the couple."
+  },
+  {
+    time: "11:10 AM",
+    title: "Holy Mass & Matrimony",
+    description: "Join us for the sacred wedding Mass, exchange of vows, and the blessing of the newlyweds."
+  },
+  {
+    time: "12:15 PM",
+    title: "Photography",
+    description: "Capture precious memories with the newlyweds, family, and friends."
+  },
+  {
+    time: "12:45 PM",
+    title: "Wedding Reception",
+    description: "Celebrate the beginning of their new journey with love, joy, and togetherness."
+  }
+],
   festivities: [
     {
       name: "Engagement",

@@ -2,7 +2,13 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 /** Canvas "foil" the guest rubs away to reveal what's underneath. */
-export function ScratchReveal({ children, className }: { children: ReactNode; className?: string }) {
+export function ScratchReveal({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const drawing = useRef(false);
@@ -52,7 +58,10 @@ export function ScratchReveal({ children, className }: { children: ReactNode; cl
 
     draw();
     // Redraw once the script fonts arrive so the label isn't stuck in a fallback font.
-    Promise.all([document.fonts.load('italic 300 30px "Cormorant Garamond"'), document.fonts.load('600 9px "Cinzel"')])
+    Promise.all([
+      document.fonts.load('italic 300 30px "Cormorant Garamond"'),
+      document.fonts.load('600 9px "Cinzel"'),
+    ])
       .then(() => moves.current === 0 && draw())
       .catch(() => {});
     return () => {
@@ -89,6 +98,18 @@ export function ScratchReveal({ children, className }: { children: ReactNode; cl
   return (
     <div ref={wrapRef} className={cn("relative overflow-hidden", className)}>
       {children}
+      {revealed && (
+        <>
+          <div className="celebration-burst" aria-hidden="true">
+            {Array.from({ length: 14 }, (_, i) => (
+              <span key={i} />
+            ))}
+          </div>
+          <span className="sr-only" role="status">
+            Wedding date revealed
+          </span>
+        </>
+      )}
       <canvas
         ref={canvasRef}
         aria-label="Scratch to reveal the date"

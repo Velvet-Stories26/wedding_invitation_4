@@ -131,18 +131,18 @@ function Invitation() {
 
   <div
     key={String(opened)}
-    className="relative z-10 flex h-full flex-col items-center justify-between px-10 pb-24 pt-14 text-center"
+    className="relative z-10 flex h-full flex-col items-center justify-between px-6 pb-24 pt-14 text-center"
   >
     <Reveal>
       <Cross className="mx-auto h-7 w-5 text-gold-soft" />
-      <p className="label-caps mt-4 text-[0.5rem] text-gold-soft">
+      <p className="label-caps mt-4 text-[0.625rem] text-gold-soft">
         With the blessing of God
       </p>
     </Reveal>
 
     <div>
       <Reveal delay={200}>
-        <p className="label-caps text-[0.5rem] text-ivory/80">
+        <p className="label-caps text-[0.625rem] text-ivory/80">
           The wedding of
         </p>
         <Flourish className="mx-auto mt-3 h-2.5 w-12 text-gold-soft" />
@@ -150,11 +150,11 @@ function Invitation() {
 
       <Reveal delay={400}>
         <h1 className="mt-5">
-          <span className="names-caps glow-text block text-[2.6rem] text-ivory sm:text-[3rem]">
+          <span className="names-caps glow-text block text-3xl text-ivory">
             {invite.bride}
           </span>
-          <Amp className="my-1 block text-4xl" />
-          <span className="names-caps glow-text block text-[2.6rem] text-ivory sm:text-[3rem]">
+          <Amp className="my-1 block text-3xl" />
+          <span className="names-caps glow-text block text-3xl text-ivory">
             {invite.groom}
           </span>
         </h1>
@@ -163,7 +163,7 @@ function Invitation() {
       <Reveal delay={650}>
         <div className="mx-auto mt-7 flex items-center justify-center gap-4 text-gold-soft">
           <span className="h-px w-10 bg-current opacity-60" />
-          <p className="label-caps text-[0.6rem] text-ivory">
+          <p className="label-caps text-[0.7rem] text-ivory">
             {invite.dateShort}
           </p>
           <span className="h-px w-10 bg-current opacity-60" />
@@ -189,7 +189,7 @@ function Invitation() {
             <div className="relative aspect-[900/695]">
               <ScratchReveal className="absolute left-[19%] right-[19%] top-[24%] bottom-[19%] rounded-md bg-ivory">
                 <div className="flex h-full flex-col items-center justify-center px-2">
-                  <p className="label-caps text-[0.45rem] text-wine">Marriage</p>
+                  <p className="label-caps text-[0.625rem] text-wine">Marriage</p>
                   <p className="font-script mt-1 text-4xl leading-tight text-wine">
                     {invite.dateDisplay}
                   </p>
@@ -214,8 +214,8 @@ function Invitation() {
         {/* THE BRIDE */}
         <section className="bg-blush-paper py-20">
           <Reveal className="px-8 text-center">
-            <p className="label-caps text-[0.5rem] text-wine">The bride</p>
-            <h2 className="names-caps mt-4 text-5xl text-ink">{invite.bride}</h2>
+            <p className="label-caps text-[0.625rem] text-wine">The bride</p>
+            <h2 className="names-caps mt-4 text-3xl leading-tight text-ink">{invite.bride}</h2>
             <p className="font-display mt-3 text-sm italic text-ink-soft">
               Daughter of {invite.brideParents}
             </p>
@@ -231,8 +231,8 @@ function Invitation() {
         {/* THE GROOM */}
         <section className="bg-blush-paper py-20">
           <Reveal className="px-8 text-center">
-            <p className="label-caps text-[0.5rem] text-wine">The groom</p>
-            <h2 className="names-caps mt-4 text-5xl text-ink">{invite.groom}</h2>
+            <p className="label-caps text-[0.625rem] text-wine">The groom</p>
+            <h2 className="names-caps mt-4 text-3xl leading-tight text-ink">{invite.groom}</h2>
             <p className="font-display mt-3 text-sm italic text-ink-soft">
               Son of {invite.groomParents}
             </p>
@@ -270,7 +270,7 @@ function Invitation() {
             <p className="font-display mx-auto mt-6 max-w-[320px] text-xl font-light italic leading-relaxed text-ivory">
               “{invite.verse}”
             </p>
-            <p className="label-caps mt-4 text-[0.5rem] text-gold-soft">{invite.verseRef}</p>
+            <p className="label-caps mt-4 text-[0.625rem] text-gold-soft">{invite.verseRef}</p>
           </Reveal>
         </section>
 
@@ -303,7 +303,7 @@ function Invitation() {
          {/* COUNTDOWN */}
         <section className="bg-wine-velvet px-6 py-16">
           <Reveal>
-            <p className="label-caps text-center text-[0.5rem] text-gold-soft">
+            <p className="label-caps text-center text-[0.625rem] text-gold-soft">
               Until we say “I do”
             </p>
             <Countdown dateISO={invite.dateISO} />
@@ -346,17 +346,27 @@ function Invitation() {
         {/* <FloralDivider flip /> */}
 
         {/* SCHEDULE */}
-        <section className="bg-blush-paper px-8 py-20">
+        <section className="bg-ivory-paper px-5 py-16 sm:px-7 sm:py-20">
           <Reveal>
             <SectionHeading eyebrow="The celebration" title="Order of the day" />
           </Reveal>
-          <ol className="relative mx-auto mt-10 max-w-[280px] border-l border-gold/60 pl-8">
+          <ol className="relative mx-auto mt-10 max-w-[400px] space-y-5 before:absolute before:bottom-4 before:left-[9px] before:top-4 before:w-px before:bg-gold/60">
             {invite.schedule.map((item, i) => (
-              <li key={item.title} className="relative pb-7 last:pb-0">
-                <Reveal delay={i * 120}>
-                  <span className="absolute -left-[37px] top-1.5 h-2.5 w-2.5 rotate-45 border border-gold bg-blush" />
-                  <p className="label-caps text-[0.5rem] text-wine">{item.time}</p>
-                  <p className="font-display mt-1 text-xl text-ink">{item.title}</p>
+              <li key={item.title} className="relative pl-8">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-[3px] top-5 z-10 h-3.5 w-3.5 rounded-full border-2 border-gold bg-ivory shadow-[0_0_0_4px_var(--color-ivory-paper)]"
+                />
+                <Reveal delay={i * 100}>
+                  <article className="rounded-sm border border-gold/35 bg-white/75 px-4 py-4 shadow-sm sm:px-5">
+                    <p className="label-caps text-[0.625rem] text-wine">{item.time}</p>
+                    <h3 className="font-display mt-1 text-xl font-medium leading-snug text-ink">
+                      {item.title}
+                    </h3>
+                    <p className="font-display mt-1.5 text-base leading-relaxed text-ink-soft">
+                      {item.description}
+                    </p>
+                  </article>
                 </Reveal>
               </li>
             ))}
@@ -411,14 +421,14 @@ function Invitation() {
                   </span>
                   <div className="px-6 pb-7 pt-4 text-center">
                     <h3 className="names-caps text-[1.7rem] text-ink">{f.name}</h3>
-                    <p className="label-caps mt-3 text-[0.5rem] text-wine">{f.when}</p>
+                    <p className="label-caps mt-3 text-[0.625rem] text-wine">{f.when}</p>
                     <p className="font-display mt-2 italic text-ink-soft">{f.where}</p>
                     <a
                       href={f.mapsUrl}
                       target="_blank"
                       rel="noreferrer"
                       aria-label={`View ${f.name === "Engagement" ? "engagement hall" : "church"} location on Google Maps`}
-                      className="label-caps mt-5 inline-block border-b border-gold pb-0.5 text-[0.45rem] text-ink-soft hover:text-wine"
+                      className="label-caps mt-5 inline-block border-b border-gold pb-0.5 text-[0.625rem] text-ink-soft hover:text-wine"
                     >
                       View location
                     </a>
@@ -441,13 +451,9 @@ function Invitation() {
           <div className="absolute inset-0 -z-10 bg-plum-deep/80" />
           <Reveal>
             <h2>
-              <span className="names-caps glow-text block text-4xl text-ivory sm:text-5xl">
-                {invite.bride}
-              </span>
-              <Amp className="block text-4xl" />
-              <span className="names-caps glow-text block text-4xl text-ivory sm:text-5xl">
-                {invite.groom}
-              </span>
+              <span className="names-caps glow-text block text-3xl text-ivory">{invite.bride}</span>
+              <Amp className="block text-3xl" />
+              <span className="names-caps glow-text block text-3xl text-ivory">{invite.groom}</span>
             </h2>
             <Flourish className="mx-auto mt-6 h-3 w-16 text-gold-soft" />
           </Reveal>
@@ -455,12 +461,12 @@ function Invitation() {
             <p className="font-display mx-auto mt-6 max-w-[310px] text-lg font-light italic leading-relaxed text-ivory/85">
               {invite.closingMessage}
             </p>
-            <p className="label-caps mt-6 text-[0.45rem] text-gold-soft/70">
+            <p className="label-caps mt-6 text-[0.625rem] text-gold-soft/70">
               With {invite.brideFamily} & {invite.groomFamily}
             </p>
             <GoldRule className="mt-10" />
-            <p className="label-caps mt-4 text-[0.45rem] text-gold-soft/80">{invite.dateLong}</p>
-            <p className="label-caps mt-6 text-[0.5rem] text-gold-soft">Best wishes</p>
+            <p className="label-caps mt-4 text-[0.625rem] text-gold-soft/80">{invite.dateLong}</p>
+            <p className="label-caps mt-6 text-[0.625rem] text-gold-soft">Best wishes</p>
             <p className="font-display mt-2 text-base text-ivory/85">
               {invite.bestWishes.join(" · ")}
             </p>
