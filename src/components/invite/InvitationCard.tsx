@@ -26,11 +26,11 @@ export function InvitationCard() {
         </p>
         <span className="mt-3 h-px w-12 bg-gold/80" />
 
-        <h2 className="names-caps text-[1.05rem] leading-tight text-wine sm:text-xl">
+        <h2 className="names-caps mt-5 text-[1.05rem] leading-tight text-wine sm:text-xl">
           {invite.groom}
         </h2>
 
-        <div className="mt-5 space-y-2 font-display text-[0.9rem] italic leading-snug text-ink-soft sm:text-xs">
+        <div className="mt-3 space-y-2 font-display text-[0.9rem] italic leading-snug text-ink-soft sm:text-xs">
           <p>
             Son of
             <br />
