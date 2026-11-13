@@ -235,8 +235,8 @@ function Invitation() {
           <Reveal className="px-8 text-center">
             <p className="label-caps text-[0.625rem] text-wine">The groom</p>
             <h2 className="names-caps mt-4 text-3xl leading-tight text-ink">{invite.groom}</h2>
-            <p className="font-display mt-3 text-sm italic text-ink-soft">
-              Son of {invite.groomParents}
+            <p className="font-display mt-3 text-md italic text-ink-soft">
+              Son of <br/>{invite.groomParents}
             </p>
           </Reveal>
           <Reveal delay={150} className="mt-8 px-6">
@@ -252,8 +252,8 @@ function Invitation() {
           <Reveal className="px-8 text-center">
             <p className="label-caps text-[0.625rem] text-wine">The bride</p>
             <h2 className="names-caps mt-4 text-3xl leading-tight text-ink">{invite.bride}</h2>
-            <p className="font-display mt-3 text-sm italic text-ink-soft">
-              Daughter of {invite.brideParents}
+            <p className="font-display mt-3 text-md italic text-ink-soft">
+              Daughter of <br />{invite.brideParents}
             </p>
           </Reveal>
           <Reveal delay={150} className="mt-8 px-6">
