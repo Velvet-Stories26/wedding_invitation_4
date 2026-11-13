@@ -26,17 +26,6 @@ export function InvitationCard() {
         </p>
         <span className="mt-3 h-px w-12 bg-gold/80" />
 
-        <h2 className="names-caps mt-5 text-[1.05rem] leading-tight text-wine sm:text-xl">
-          {invite.bride}
-        </h2>
-        <div className="mt-3 space-y-2 font-display text-[0.7rem] italic leading-snug text-ink-soft sm:text-xs">
-          <p>
-            Daughter of
-            <br />
-            {invite.brideParents}
-          </p>
-          </div>
-        <p className="font-script my-0.5 text-4xl leading-none text-gold sm:text-5xl">&amp;</p>
         <h2 className="names-caps text-[1.05rem] leading-tight text-wine sm:text-xl">
           {invite.groom}
         </h2>
@@ -49,6 +38,22 @@ export function InvitationCard() {
           </p>
         </div>
 
+
+        
+        <p className="font-script my-0.5 text-4xl leading-none text-gold sm:text-5xl">&amp;</p>
+
+        <h2 className="names-caps mt-5 text-[1.05rem] leading-tight text-wine sm:text-xl">
+          {invite.bride}
+        </h2>
+        <div className="mt-3 space-y-2 font-display text-[0.7rem] italic leading-snug text-ink-soft sm:text-xs">
+          <p>
+            Daughter of
+            <br />
+            {invite.brideParents}
+          </p>
+          </div>
+
+        
         <p className="label-caps mt-4 text-[0.6rem] leading-relaxed text-wine sm:text-[0.65rem]">
           Together with their families
         </p>

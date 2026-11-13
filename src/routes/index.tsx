@@ -151,11 +151,11 @@ function Invitation() {
       <Reveal delay={400}>
         <h1 className="mt-5">
           <span className="names-caps glow-text block text-3xl text-ivory">
-            {invite.bride}
+            {invite.groom}
           </span>
           <Amp className="my-1 block text-3xl" />
           <span className="names-caps glow-text block text-3xl text-ivory">
-            {invite.groom}
+            {invite.bride}
           </span>
         </h1>
       </Reveal>
@@ -230,23 +230,6 @@ function Invitation() {
         {/* FULL-SCREEN INVITATION */}
         <InvitationCard />
 
-        {/* THE BRIDE */}
-        <section className="bg-blush-paper py-20">
-          <Reveal className="px-8 text-center">
-            <p className="label-caps text-[0.625rem] text-wine">The bride</p>
-            <h2 className="names-caps mt-4 text-3xl leading-tight text-ink">{invite.bride}</h2>
-            <p className="font-display mt-3 text-sm italic text-ink-soft">
-              Daughter of {invite.brideParents}
-            </p>
-          </Reveal>
-          <Reveal delay={150} className="mt-8 px-6">
-            <PhotoFrame
-              photo={photos.bride}
-              className="mx-auto aspect-[4/5] w-full max-w-[280px]"
-            />
-          </Reveal>
-        </section>
-
         {/* THE GROOM */}
         <section className="bg-blush-paper py-20">
           <Reveal className="px-8 text-center">
@@ -259,6 +242,23 @@ function Invitation() {
           <Reveal delay={150} className="mt-8 px-6">
             <PhotoFrame
               photo={photos.groom}
+              className="mx-auto aspect-[4/5] w-full max-w-[280px]"
+            />
+          </Reveal>
+        </section>
+
+        {/* THE BRIDE */}
+        <section className="bg-blush-paper py-20">
+          <Reveal className="px-8 text-center">
+            <p className="label-caps text-[0.625rem] text-wine">The bride</p>
+            <h2 className="names-caps mt-4 text-3xl leading-tight text-ink">{invite.bride}</h2>
+            <p className="font-display mt-3 text-sm italic text-ink-soft">
+              Daughter of {invite.brideParents}
+            </p>
+          </Reveal>
+          <Reveal delay={150} className="mt-8 px-6">
+            <PhotoFrame
+              photo={photos.bride}
               className="mx-auto aspect-[4/5] w-full max-w-[280px]"
             />
           </Reveal>
@@ -460,9 +460,9 @@ function Invitation() {
           <div className="absolute inset-0 -z-10 bg-plum-deep/80" />
           <Reveal>
             <h2>
-              <span className="names-caps glow-text block text-3xl text-ivory">{invite.bride}</span>
-              <Amp className="block text-3xl" />
               <span className="names-caps glow-text block text-3xl text-ivory">{invite.groom}</span>
+              <Amp className="block text-3xl" />
+              <span className="names-caps glow-text block text-3xl text-ivory">{invite.bride}</span>
             </h2>
             <Flourish className="mx-auto mt-6 h-3 w-16 text-gold-soft" />
           </Reveal>
