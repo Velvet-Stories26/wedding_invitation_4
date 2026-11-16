@@ -9,6 +9,16 @@ export const invite = {
   verse:
     "Love is patient, love is kind… it always protects, always trusts, always hopes, always perseveres.",
   verseRef: "1 Corinthians 13:4–7",
+  engagement: {
+    heading: "A Promise of Love",
+    description:
+      "Every love story has a beautiful beginning. Join us as we celebrate the first step of our journey together.",
+    date: "Sunday, December 20, 2026",
+    time: "To be announced",
+    venue: "SM Convention Center",
+    location: "Pozhiyoor Kollecode",
+    mapsUrl: "https://maps.app.goo.gl/AQ9eCAJ66FEd8Ug37?g_st=aw",
+  },
   dateISO: "2026-12-22T00:00:00+05:30",
   dateLong: "Tuesday, December 22, 2026",
   dateShort: "22 · 12 · 2026",

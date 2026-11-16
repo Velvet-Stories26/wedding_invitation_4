@@ -7,6 +7,7 @@ import stage from "@/assets/stage.jpg";
 import invitationBackground from "@/assets/invitation.png";
 import closingBackground from "@/assets/invitation-bg.png";
 import verseBackground from "@/assets/silk-burgundy.png";
+import engagementBackground from "@/assets/engagement-bg.png";
 import bridePortrait from "@/assets/bride.jpeg";
 import groomPortrait from "@/assets/groom.jpeg";
 import engagementVenue from "@/assets/engagement.png";
@@ -33,6 +34,11 @@ export const photos = {
   verseBackground: {
     src: verseBackground,
     alt: "Deep burgundy silk",
+    position: "50% 50%",
+  },
+  engagementBackground: {
+    src: engagementBackground,
+    alt: "Engagement celebration background",
     position: "50% 50%",
   },
 

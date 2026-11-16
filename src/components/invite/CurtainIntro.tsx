@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import envelope from "@/assets/start-envelope.jpeg";
+import envelope from "@/assets/start-envelope.png";
 import envelopeVideo from "@/assets/envelope.mp4";
 import { cn } from "@/lib/utils";
 

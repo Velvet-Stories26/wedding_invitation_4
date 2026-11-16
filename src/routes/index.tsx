@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
-import { Music2, Pause } from "lucide-react";
+import { CalendarDays, Clock3, Heart, MapPin, MapPinned, Music2, Pause, ChevronRight } from "lucide-react";
 import frame from "@/assets/floral-frame.webp";
 import backgroundMusic from "@/assets/music.mp3";
 import { CurtainIntro } from "@/components/invite/CurtainIntro";
@@ -308,6 +308,90 @@ function Invitation() {
             </p>
             <Countdown dateISO={invite.dateISO} />
           </Reveal>
+        </section>
+
+        {/* ENGAGEMENT */}
+        <section id="engagement" className="relative isolate flex min-h-[860px] items-center overflow-hidden px-6 py-16 text-center">
+          <img
+            src={photos.engagementBackground.src}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 -z-20 h-full w-full object-cover"
+            style={{ objectPosition: photos.engagementBackground.position }}
+          />
+          <div className="absolute inset-0 -z-10 bg-[#fff4df]/75 backdrop-blur-[1px]" />
+          <div className="pointer-events-none absolute inset-x-4 inset-y-5 -z-10 border border-gold/40" />
+          <div className="mx-auto w-full max-w-[380px] py-5">
+            <Reveal>
+              <div className="mx-auto flex max-w-[270px] items-center justify-center gap-3 text-wine">
+                <span className="h-px flex-1 bg-gold/80" />
+                <Heart size={25} strokeWidth={1.4} aria-hidden />
+                <span className="h-px flex-1 bg-gold/80" />
+              </div>
+              <p className="label-caps mt-2 text-[0.7rem] text-wine">Engagement</p>
+              <h2 className="font-script mt-4 text-4xl leading-none text-wine min-[390px]:text-[2.75rem]">
+                {invite.engagement.heading}
+              </h2>
+              <div className="mx-auto mt-4 flex max-w-[230px] items-center justify-center gap-2 text-wine">
+                <span className="h-px flex-1 bg-gold/75" />
+                <Heart size={17} strokeWidth={1.5} aria-hidden />
+                <span className="h-px flex-1 bg-gold/75" />
+              </div>
+              <p className="font-display mx-auto mt-5 max-w-[340px] text-lg leading-snug text-wine-deep">
+                {invite.engagement.description}
+              </p>
+            </Reveal>
+
+            <Reveal delay={150} className="mx-auto mt-7 flex max-w-[340px] items-center gap-4 border-t border-gold/45 pt-5 pb-3 text-left">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold text-wine">
+                <CalendarDays size={23} strokeWidth={1.7} aria-hidden />
+              </div>
+              <div className="min-w-0">
+                <p className="label-caps text-[0.62rem] text-wine/80">Date</p>
+                <p className="font-display text-lg leading-tight text-wine-deep">{invite.engagement.date}</p>
+              </div>
+            </Reveal>
+            <Reveal delay={200} className="mx-auto flex max-w-[340px] items-center gap-4 border-t border-gold/45 py-3 text-left">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold text-wine">
+                <Clock3 size={23} strokeWidth={1.7} aria-hidden />
+              </div>
+              <div className="min-w-0">
+                <p className="label-caps text-[0.62rem] text-wine/80">Time</p>
+                <p className="font-display text-lg leading-tight text-wine-deep">{invite.engagement.time}</p>
+              </div>
+            </Reveal>
+            <Reveal delay={250} className="mx-auto flex max-w-[340px] items-center gap-4 border-t border-gold/45 py-3 text-left">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold text-wine">
+                <MapPin size={23} strokeWidth={1.7} aria-hidden />
+              </div>
+              <div className="min-w-0">
+                <p className="label-caps text-[0.62rem] text-wine/80">Venue</p>
+                <p className="font-display text-lg leading-tight text-wine-deep">{invite.engagement.venue}</p>
+              </div>
+            </Reveal>
+            <Reveal delay={300} className="mx-auto flex max-w-[340px] items-center gap-4 border-y border-gold/45 py-3 text-left">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold text-wine">
+                <MapPinned size={23} strokeWidth={1.7} aria-hidden />
+              </div>
+              <div className="min-w-0">
+                <p className="label-caps text-[0.62rem] text-wine/80">Location</p>
+                <p className="font-display text-lg leading-tight text-wine-deep">{invite.engagement.location}</p>
+              </div>
+            </Reveal>
+
+            {/* <Reveal delay={350}>
+              <Heart className="mx-auto mt-5 text-wine" size={17} strokeWidth={1.5} aria-hidden />
+              <a
+                href={invite.engagement.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="label-caps mt-4 inline-flex min-h-12 items-center justify-center gap-1 rounded-full border-2 border-gold bg-wine px-7 text-[0.65rem] text-ivory shadow-md transition-colors hover:bg-wine-deep focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-wine"
+              >
+                View location
+                <ChevronRight size={15} aria-hidden />
+              </a>
+            </Reveal> */}
+          </div>
         </section>
 
 
