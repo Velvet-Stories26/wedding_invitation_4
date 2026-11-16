@@ -19,7 +19,7 @@ export function InvitationCard() {
       />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-[58%] bg-gradient-to-l from-ivory/35 via-ivory/15 to-transparent" />
 
-      <Reveal className="absolute bottom-[6%] left-[43%] right-[7%] top-[7%] flex flex-col items-center justify-center px-1 text-center">
+      <Reveal className="absolute bottom-[10%] left-[43%] right-[7%] top-[1%] flex flex-col items-center justify-center px-1 text-center">
         <Flourish className="h-3 w-12 text-wine" />
         <p className="label-caps mt-3 text-[0.6rem] tracking-[0.16em] text-wine sm:text-[0.65rem]">
           The wedding of
