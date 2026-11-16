@@ -19,6 +19,7 @@ export function CurtainIntro({ onOpen, onOpened }: { onOpen: () => void; onOpene
 
   const open = () => {
     if (phase !== "closed") return;
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     onOpen();
     setVideoError(false);
     void videoRef.current?.play().then(
@@ -28,6 +29,7 @@ export function CurtainIntro({ onOpen, onOpened }: { onOpen: () => void; onOpene
   };
 
   const finish = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     setPhase("gone");
     onOpened();
   };
