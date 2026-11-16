@@ -77,7 +77,7 @@ export const photos = {
   events: {
     engagement: {
       src: engagementVenue,
-      alt: "SM Convention Center Pozhiyoor Kollecode",
+      alt: "SM Convention Center, Pozhiyoor, Kollemcode",
       position: "50% 50%",
     },
     marriage: {
