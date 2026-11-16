@@ -8,6 +8,7 @@ type Phase = "closed" | "playing" | "gone";
 export function CurtainIntro({ onOpen, onOpened }: { onOpen: () => void; onOpened: () => void }) {
   const [phase, setPhase] = useState<Phase>("closed");
   const [videoError, setVideoError] = useState(false);
+  const [sealCoverVisible, setSealCoverVisible] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -22,6 +23,7 @@ export function CurtainIntro({ onOpen, onOpened }: { onOpen: () => void; onOpene
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     onOpen();
     setVideoError(false);
+    setSealCoverVisible(true);
     void videoRef.current?.play().then(
       () => setPhase("playing"),
       () => setVideoError(true),
@@ -43,9 +45,9 @@ export function CurtainIntro({ onOpen, onOpened }: { onOpen: () => void; onOpene
           src={envelope}
           alt="A wedding invitation sealed with a gold monogram"
           className={cn(
-            "absolute inset-0 h-full w-full object-cover transition-opacity duration-500",
-            phase === "playing" && "pointer-events-none opacity-0",
+            "pointer-events-none absolute inset-0 z-10 h-full w-full object-cover transition-opacity duration-500",
           )}
+          style={{ opacity: phase === "playing" && !sealCoverVisible ? 0 : 1 }}
         />
         <video
           ref={videoRef}
@@ -53,6 +55,9 @@ export function CurtainIntro({ onOpen, onOpened }: { onOpen: () => void; onOpene
           muted
           playsInline
           preload="auto"
+          onTimeUpdate={(event) => {
+            if (event.currentTarget.currentTime >= 0.8) setSealCoverVisible(false);
+          }}
           onEnded={finish}
           onError={() => {
             if (phase !== "gone") {
@@ -71,7 +76,7 @@ export function CurtainIntro({ onOpen, onOpened }: { onOpen: () => void; onOpene
               type="button"
               onClick={open}
               aria-label="Open the wedding envelope"
-              className="absolute left-1/2 top-[41%] h-[11%] w-[25%] -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-gold-soft focus-visible:ring-offset-4 focus-visible:ring-offset-transparent"
+              className="absolute left-1/2 top-[41%] z-20 h-[11%] w-[25%] -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-gold-soft focus-visible:ring-offset-4 focus-visible:ring-offset-transparent"
             >
               <span className="animate-ripple absolute inset-0 rounded-full border border-gold-soft/70" />
             </button>
