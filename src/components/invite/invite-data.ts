@@ -29,27 +29,27 @@ export const invite = {
   },
   schedule: [
   {
-    time: "11:00 AM",
+    time: "11:30 AM",
     title: "Wedding Procession",
     description: "The bride and groom arrive, followed by the exchange of bouquets and a warm welcome."
   },
   {
-    time: "11:05 AM",
+    time: "11:35 AM",
     title: "Opening Ceremony",
     description: "A beautiful beginning with an opening prayer and blessings for the couple."
   },
   {
-    time: "11:10 AM",
+    time: "11:40 AM",
     title: "Holy Mass & Matrimony",
     description: "Join us for the sacred wedding Mass, exchange of vows, and the blessing of the newlyweds."
   },
   {
-    time: "12:15 PM",
+    time: "12:45 PM",
     title: "Photography",
     description: "Capture precious memories with the newlyweds, family, and friends."
   },
   {
-    time: "12:45 PM",
+    time: "01:00 PM",
     title: "Wedding Reception",
     description: "Celebrate the beginning of their new journey with love, joy, and togetherness."
   }
@@ -71,5 +71,5 @@ export const invite = {
     },
   ],
   closingMessage: "We look forward to celebrating these special days with you.",
-  bestWishes: ["Gogan", "Lintu", "Iniya"],
+  bestWishes: ["Gogan", "Lintu"],
 } as const;
