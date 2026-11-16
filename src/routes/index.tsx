@@ -164,7 +164,7 @@ function Invitation() {
         <div className="mx-auto mt-7 flex items-center justify-center gap-4 text-gold-soft">
           <span className="h-px w-10 bg-current opacity-60" />
           <p className="label-caps text-[0.7rem] text-ivory">
-            {invite.dateShort}
+            Scroll Down
           </p>
           <span className="h-px w-10 bg-current opacity-60" />
         </div>
@@ -471,7 +471,7 @@ function Invitation() {
               {invite.closingMessage}
             </p>
             <p className="label-caps mt-6 text-[0.625rem] text-gold-soft/70">
-              With {invite.brideFamily} & {invite.groomFamily}
+              With {invite.groomFamily} & {invite.brideFamily}
             </p>
             <GoldRule className="mt-10" />
             <p className="label-caps mt-4 text-[0.625rem] text-gold-soft/80">{invite.dateLong}</p>
