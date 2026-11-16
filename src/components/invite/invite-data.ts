@@ -14,7 +14,7 @@ export const invite = {
     description:
       "Every love story has a beautiful beginning. Join us as we celebrate the first step of our journey together.",
     date: "Sunday, December 20, 2026",
-    time: "To be announced",
+    time: "3:00 PM",
     venue: "SM Convention Center",
     location: "Pozhiyoor Kollecode",
     mapsUrl: "https://maps.app.goo.gl/AQ9eCAJ66FEd8Ug37?g_st=aw",

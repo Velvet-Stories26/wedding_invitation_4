@@ -208,108 +208,6 @@ function Invitation() {
           </Reveal>
         </section>
 
-        {/* VERSE */}
-        <section id="love" className="relative isolate overflow-hidden px-8 py-20 text-center">
-          <img
-            src={photos.verseBackground.src}
-            alt=""
-            aria-hidden
-            className="absolute inset-0 -z-20 h-full w-full object-cover"
-            style={{ objectPosition: photos.verseBackground.position }}
-          />
-          <div className="absolute inset-0 -z-10 bg-plum-deep/55" />
-          <Reveal>
-            <Cross className="mx-auto h-6 w-4 text-gold-soft" />
-            <p className="font-display mx-auto mt-6 max-w-[320px] text-xl font-light italic leading-relaxed text-ivory">
-              “{invite.verse}”
-            </p>
-            <p className="label-caps mt-4 text-[0.625rem] text-gold-soft">{invite.verseRef}</p>
-          </Reveal>
-        </section>
-
-        {/* FULL-SCREEN INVITATION */}
-        <InvitationCard />
-
-        {/* THE GROOM */}
-        <section className="bg-blush-paper py-20">
-          <Reveal className="px-8 text-center">
-            <p className="label-caps text-[0.625rem] text-wine">The groom</p>
-            <h2 className="names-caps mt-4 text-3xl leading-tight text-ink">{invite.groom}</h2>
-            <p className="font-display mt-3 text-md italic text-ink-soft">
-              Son of <br/>{invite.groomParents}
-            </p>
-          </Reveal>
-          <Reveal delay={150} className="mt-8 px-6">
-            <PhotoFrame
-              photo={photos.groom}
-              className="mx-auto aspect-[4/5] w-full max-w-[280px]"
-            />
-          </Reveal>
-        </section>
-
-        {/* THE BRIDE */}
-        <section className="bg-blush-paper py-20">
-          <Reveal className="px-8 text-center">
-            <p className="label-caps text-[0.625rem] text-wine">The bride</p>
-            <h2 className="names-caps mt-4 text-3xl leading-tight text-ink">{invite.bride}</h2>
-            <p className="font-display mt-3 text-md italic text-ink-soft">
-              Daughter of <br />{invite.brideParents}
-            </p>
-          </Reveal>
-          <Reveal delay={150} className="mt-8 px-6">
-            <PhotoFrame
-              photo={photos.bride}
-              className="mx-auto aspect-[4/5] w-full max-w-[280px]"
-            />
-          </Reveal>
-        </section>
-
-        {/* FILM STRIP */}
-        {/* <section className="bg-blush-paper pb-16 pt-20">
-          <Reveal className="px-8">
-            <SectionHeading eyebrow="Our story" title="In frames" />
-          </Reveal>
-          <Reveal delay={150} className="mt-10">
-            <FilmStrip items={photos.filmstrip} />
-          </Reveal>
-        </section> */}
-
-        {/* TOGETHER — peek gallery */}
-        <section className="bg-plum-night py-20">
-          <Reveal className="px-8">
-            <SectionHeading eyebrow="Together" title="Two hearts, one faith" tone="dark" />
-          </Reveal>
-          <Reveal delay={150} className="mt-8">
-            <SwipeGallery items={photos.together} variant="peek" tone="dark" />
-          </Reveal>
-        </section>
-
-        {/* MOSAIC */}
-        <section className="bg-blush-paper px-6 py-20">
-          <Reveal>
-            <SectionHeading eyebrow="Little forevers" title="Moments we keep" />
-          </Reveal>
-          <Reveal
-            delay={150}
-            className="mt-10 grid grid-cols-5 grid-rows-[150px_150px_120px] gap-3"
-          >
-            <PhotoFrame photo={photos.mosaic.large} className="col-span-3 row-span-2" />
-            <PhotoFrame photo={photos.mosaic.topRight} className="col-span-2" />
-            <PhotoFrame photo={photos.mosaic.middleRight} className="col-span-2" />
-            <PhotoFrame photo={photos.mosaic.wide} className="col-span-5" />
-          </Reveal>
-        </section>
-
-         {/* COUNTDOWN */}
-        <section className="bg-wine-velvet px-6 py-16">
-          <Reveal>
-            <p className="label-caps text-center text-[0.625rem] text-gold-soft">
-              Until we say “I do”
-            </p>
-            <Countdown dateISO={invite.dateISO} />
-          </Reveal>
-        </section>
-
         {/* ENGAGEMENT */}
         <section id="engagement" className="relative isolate flex min-h-[860px] items-center overflow-hidden px-6 py-16 text-center">
           <img
@@ -393,6 +291,112 @@ function Invitation() {
             </Reveal> */}
           </div>
         </section>
+
+         {/* VERSE */}
+        <section id="love" className="relative isolate overflow-hidden px-8 py-20 text-center">
+          <img
+            src={photos.verseBackground.src}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 -z-20 h-full w-full object-cover"
+            style={{ objectPosition: photos.verseBackground.position }}
+          />
+          <div className="absolute inset-0 -z-10 bg-plum-deep/55" />
+          <Reveal>
+            <Cross className="mx-auto h-6 w-4 text-gold-soft" />
+            <p className="font-display mx-auto mt-6 max-w-[320px] text-xl font-light italic leading-relaxed text-ivory">
+              “{invite.verse}”
+            </p>
+            <p className="label-caps mt-4 text-[0.625rem] text-gold-soft">{invite.verseRef}</p>
+          </Reveal>
+        </section>
+
+        {/* FULL-SCREEN INVITATION */}
+        <InvitationCard />
+
+        {/* THE GROOM */}
+        <section className="bg-blush-paper py-20">
+          <Reveal className="px-8 text-center">
+            <p className="label-caps text-[0.625rem] text-wine">The groom</p>
+            <h2 className="names-caps mt-4 text-3xl leading-tight text-ink">{invite.groom}</h2>
+            <p className="font-display mt-3 text-md italic text-ink-soft">
+              Son of <br/>{invite.groomParents}
+            </p>
+          </Reveal>
+          <Reveal delay={150} className="mt-8 px-6">
+            <PhotoFrame
+              photo={photos.groom}
+              className="mx-auto aspect-[4/5] w-full max-w-[280px]"
+            />
+          </Reveal>
+        </section>
+
+        {/* THE BRIDE */}
+        <section className="bg-blush-paper py-20">
+          <Reveal className="px-8 text-center">
+            <p className="label-caps text-[0.625rem] text-wine">The bride</p>
+            <h2 className="names-caps mt-4 text-3xl leading-tight text-ink">{invite.bride}</h2>
+            <p className="font-display mt-3 text-md italic text-ink-soft">
+              Daughter of <br />{invite.brideParents}
+            </p>
+          </Reveal>
+          <Reveal delay={150} className="mt-8 px-6">
+            <PhotoFrame
+              photo={photos.bride}
+              className="mx-auto aspect-[4/5] w-full max-w-[280px]"
+            />
+          </Reveal>
+        </section>
+
+        
+
+        {/* FILM STRIP */}
+        {/* <section className="bg-blush-paper pb-16 pt-20">
+          <Reveal className="px-8">
+            <SectionHeading eyebrow="Our story" title="In frames" />
+          </Reveal>
+          <Reveal delay={150} className="mt-10">
+            <FilmStrip items={photos.filmstrip} />
+          </Reveal>
+        </section> */}
+
+        {/* TOGETHER — peek gallery */}
+        <section className="bg-plum-night py-20">
+          <Reveal className="px-8">
+            <SectionHeading eyebrow="Together" title="Two hearts, one faith" tone="dark" />
+          </Reveal>
+          <Reveal delay={150} className="mt-8">
+            <SwipeGallery items={photos.together} variant="peek" tone="dark" />
+          </Reveal>
+        </section>
+
+        {/* MOSAIC */}
+        <section className="bg-blush-paper px-6 py-20">
+          <Reveal>
+            <SectionHeading eyebrow="Little forevers" title="Moments we keep" />
+          </Reveal>
+          <Reveal
+            delay={150}
+            className="mt-10 grid grid-cols-5 grid-rows-[150px_150px_120px] gap-3"
+          >
+            <PhotoFrame photo={photos.mosaic.large} className="col-span-3 row-span-2" />
+            <PhotoFrame photo={photos.mosaic.topRight} className="col-span-2" />
+            <PhotoFrame photo={photos.mosaic.middleRight} className="col-span-2" />
+            <PhotoFrame photo={photos.mosaic.wide} className="col-span-5" />
+          </Reveal>
+        </section>
+
+         {/* COUNTDOWN */}
+        <section className="bg-wine-velvet px-6 py-16">
+          <Reveal>
+            <p className="label-caps text-center text-[0.625rem] text-gold-soft">
+              Until we say “I do”
+            </p>
+            <Countdown dateISO={invite.dateISO} />
+          </Reveal>
+        </section>
+
+        
 
 
         {/* <FloralDivider /> */}
